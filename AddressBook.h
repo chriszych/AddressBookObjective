@@ -20,5 +20,6 @@ class AddressBook {
 
 public:
     void registerUser();
+    void showAllUsers();
 
 };

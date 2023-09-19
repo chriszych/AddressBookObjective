@@ -22,7 +22,7 @@ User AddressBook::enterNewUserData()
     string login, password;
     do
     {
-        cout << endl << "Enter login: ";
+        cout << "Enter login: ";
         //user.login = wczytajLinie();
         //cin >> user.login;
         cin >> login;
@@ -49,6 +49,15 @@ int AddressBook::getNewUserId()
 
 bool AddressBook::checkIfLoginExist(string login)
 {
+    for (size_t i=0; i < Users.size(); i++){
+        if (Users[i].getLogin() == login){
+            cout << endl << "User with entered login already exist." << endl;
+            return true;
+        }
+    }
+    return false;
+
+    /*
     vector <User>::iterator itr = Users.begin();
     while (itr != Users.end())
     {
@@ -61,4 +70,15 @@ bool AddressBook::checkIfLoginExist(string login)
             itr++;
     }
     return false;
+    */
+}
+
+void AddressBook::showAllUsers(){
+
+    for (size_t i=0; i < Users.size(); i++){
+
+            cout << Users[i].getId() << endl;
+            cout << Users[i].getLogin() << endl;
+            cout << Users[i].getPassword() << endl;
+        }
 }
