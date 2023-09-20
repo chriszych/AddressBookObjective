@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void User ::setId(int newId){
+void User::setId(int newId){
     if(newId >= 0){
         id = newId;
     }

@@ -1,34 +1,21 @@
-#include <iostream>
-#include <vector>
-#include <windows.h>
-#include <fstream>
-#include <sstream>
+#ifndef ADDRESSBOOK_H
+#define ADDRESSBOOK_H
 
-#include "User.h"
+#include <iostream>
+
+#include "UserManager.h"
 
 using namespace std;
 
 class AddressBook {
 
-    int idLoggedUser;
-    int idDeletedUser;
-    int idLastUser;
-
-    string usersFile;
-
-    vector <User> Users;
-
-    User enterNewUserData();
-    int getNewUserId();
-    bool checkIfLoginExist(string login);
-    void addUserToFile(User user);
-    string convertUserDataToLineSeparatedWithVerticalLines (User user);
-    string convertIntToString (int number);
-    bool isFileEmpty(fstream &textFile);
+    UserManager userManager;
 
 public:
-    AddressBook();
+
     void registerUser();
     void showAllUsers();
 
 };
+
+#endif
