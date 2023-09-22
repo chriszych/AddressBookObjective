@@ -46,3 +46,57 @@ string UsersFile::convertUserDataToLineSeparatedWithVerticalLines (User user)
 
     return userDataLine;
 }
+
+vector <User> UsersFile::readUsersFromFile()
+{
+    vector <User> users;
+    User user;
+    string singleUserDataSeparatedWithVerticalLines = "";
+
+    textFile.open(usersFile.c_str(), ios::in);
+
+    if (textFile.good() == true)
+    {
+        while (getline(textFile, singleUserDataSeparatedWithVerticalLines))
+        {
+            user = getUserData(singleUserDataSeparatedWithVerticalLines);
+            users.push_back(user);
+        }
+
+    }
+    textFile.close();
+    return users;
+}
+
+User UsersFile::getUserData(string singleUserDataSeparatedWithVerticalLines)
+{
+    User user;
+    string singleUserData = "";
+    int singleUserDataNumber = 1;
+
+    for (size_t charPostion = 0; charPostion < singleUserDataSeparatedWithVerticalLines.length(); ++charPostion)
+    {
+        if (singleUserDataSeparatedWithVerticalLines[charPostion] != '|')
+        {
+            singleUserData += singleUserDataSeparatedWithVerticalLines[charPostion];
+        }
+        else
+        {
+            switch(singleUserDataNumber)
+            {
+            case 1:
+                user.setId(atoi(singleUserData.c_str()));
+                break;
+            case 2:
+                user.setLogin(singleUserData);
+                break;
+            case 3:
+                user.setPassword(singleUserData);
+                break;
+            }
+            singleUserData = "";
+            singleUserDataNumber++;
+        }
+    }
+    return user;
+}

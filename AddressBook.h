@@ -13,6 +13,7 @@ class AddressBook {
 
 public:
 
+    AddressBook();
     void registerUser();
     void showAllUsers();
 

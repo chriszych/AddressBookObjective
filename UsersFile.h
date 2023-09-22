@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <cstdlib>
 
 #include "User.h"
 #include "AuxiliaryClasses.h"
@@ -17,10 +18,12 @@ class UsersFile {
 
     bool isFileEmpty();
     string convertUserDataToLineSeparatedWithVerticalLines (User user);
+    User getUserData (string singleUserDataSeparatedWithVerticalLines);
 
 public:
     UsersFile();
     void addUserToFile(User user);
+    vector <User> readUsersFromFile();
 
 };
 

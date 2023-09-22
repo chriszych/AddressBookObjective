@@ -64,3 +64,8 @@ void UserManager::showAllUsers(){
             cout << Users[i].getPassword() << endl;
         }
 }
+
+void UserManager::readUsersFromFile()
+{
+    Users = usersFile.readUsersFromFile();
+}
