@@ -1,9 +1,5 @@
 #include "UsersFile.h"
 
-UsersFile::UsersFile(){
-    usersFile = "Users.txt";
-}
-
 void UsersFile::addUserToFile(User user)
 {
     string userDataLine = "";

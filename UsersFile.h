@@ -13,7 +13,7 @@ using namespace std;
 
 class UsersFile {
 
-    string usersFile;
+    const string usersFile;
     fstream textFile;
 
     bool isFileEmpty();
@@ -21,7 +21,7 @@ class UsersFile {
     User getUserData (string singleUserDataSeparatedWithVerticalLines);
 
 public:
-    UsersFile();
+    UsersFile(string fileName) : usersFile(fileName) {};
     void addUserToFile(User user);
     vector <User> readUsersFromFile();
 
