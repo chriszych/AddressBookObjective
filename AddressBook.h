@@ -13,7 +13,9 @@ class AddressBook {
 
 public:
 
-    AddressBook();
+    AddressBook(string fileName) : userManager(fileName) {
+        userManager.readUsersFromFile();
+    };
     void registerUser();
     void showAllUsers();
 
