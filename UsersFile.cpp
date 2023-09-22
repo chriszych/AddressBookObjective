@@ -3,6 +3,8 @@
 void UsersFile::addUserToFile(User user)
 {
     string userDataLine = "";
+    fstream textFile;
+
     textFile.open(usersFile.c_str(), ios::app);
 
     if (textFile.good() == true)
@@ -25,6 +27,8 @@ void UsersFile::addUserToFile(User user)
 
 bool UsersFile::isFileEmpty()
 {
+    fstream textFile;
+
     textFile.seekg(0, ios::end);
     if (textFile.tellg() == 0)
         return true;
@@ -45,6 +49,7 @@ string UsersFile::convertUserDataToLineSeparatedWithVerticalLines (User user)
 
 vector <User> UsersFile::readUsersFromFile()
 {
+    fstream textFile;
     vector <User> users;
     User user;
     string singleUserDataSeparatedWithVerticalLines = "";

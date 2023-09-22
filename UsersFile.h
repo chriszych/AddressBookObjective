@@ -14,7 +14,7 @@ using namespace std;
 class UsersFile {
 
     const string usersFile;
-    fstream textFile;
+    //fstream textFile;
 
     bool isFileEmpty();
     string convertUserDataToLineSeparatedWithVerticalLines (User user);
