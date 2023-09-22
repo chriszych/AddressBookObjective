@@ -64,3 +64,27 @@ void UserManager::showAllUsers(){
             cout << Users[i].getPassword() << endl;
         }
 }
+
+void UserManager::readUsersFromFile()
+{
+
+    Users = usersFile.readUsersFromFile();
+    /*
+    User user;
+    string singleUserDataSeparatedWithVerticalLines = "";
+
+    fstream textFile;
+    textFile.open(nazwaPlikuZUzytkownikami.c_str(), ios::in);
+
+    if (textFile.good() == true)
+    {
+        while (getline(textFile, singleUserDataSeparatedWithVerticalLines))
+        {
+            user = getUserData(singleUserDataSeparatedWithVerticalLines);
+            users.push_back(user);
+        }
+
+    }
+    textFile.close();
+    */
+}
