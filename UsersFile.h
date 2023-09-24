@@ -7,14 +7,13 @@
 #include <cstdlib>
 
 #include "User.h"
-#include "AuxiliaryClasses.h"
+#include "AuxiliaryMethods.h"
 
 using namespace std;
 
 class UsersFile {
 
     const string usersFile;
-    //fstream textFile;
 
     bool isFileEmpty();
     string convertUserDataToLineSeparatedWithVerticalLines (User user);

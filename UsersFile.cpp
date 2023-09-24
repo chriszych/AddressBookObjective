@@ -11,7 +11,7 @@ void UsersFile::addUserToFile(User user)
     {
         userDataLine = convertUserDataToLineSeparatedWithVerticalLines (user);
 
-        if (isFileEmpty() == true)
+        if (AuxiliaryMethods::isFileEmpty(textFile) == true)
         {
             textFile << userDataLine;
         }
@@ -25,22 +25,12 @@ void UsersFile::addUserToFile(User user)
     textFile.close();
 }
 
-bool UsersFile::isFileEmpty()
-{
-    fstream textFile;
-
-    textFile.seekg(0, ios::end);
-    if (textFile.tellg() == 0)
-        return true;
-    else
-        return false;
-}
 
 string UsersFile::convertUserDataToLineSeparatedWithVerticalLines (User user)
 {
     string userDataLine = "";
 
-    userDataLine += AuxiliaryClasses::convertIntToString (user.getId ()) + '|';
+    userDataLine += AuxiliaryMethods::convertIntToString (user.getId ()) + '|';
     userDataLine += user.getLogin() + '|';
     userDataLine += user.getPassword() + '|';
 
