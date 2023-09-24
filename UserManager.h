@@ -27,6 +27,7 @@ public:
     void registerUser();
     void showAllUsers();
     void readUsersFromFile();
+    int getIdLoggedUser();
 };
 
 #endif

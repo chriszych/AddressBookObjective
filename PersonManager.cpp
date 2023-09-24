@@ -50,3 +50,40 @@ string PersonManager::changeFirstLetterToUpperAndRestLettersToLower(string text)
     }
     return text;
 }
+
+void PersonManager::showAllPersons(){
+
+    system("cls");
+    if (!Persons.empty())
+    {
+        cout << "             >>> PERSONS <<<" << endl;
+        cout << "-----------------------------------------------" << endl;
+        for (vector <Person> :: iterator itr = Persons.begin(); itr != Persons.end(); itr++)
+        {
+            showPersonData(*itr);
+        }
+        cout << endl;
+    }
+    else
+    {
+        cout << endl << "Your AddressBook is empty." << endl << endl;
+    }
+    system("pause");
+}
+
+void PersonManager::showPersonData(Person person)
+{
+    cout << endl << "Id:       " << person.getId() << endl;
+    cout << "First Name:       " << person.getFirstName() << endl;
+    cout << "Last Name:        " << person.getLastName() << endl;
+    cout << "Phone number:     " << person.getPhoneNumber() << endl;
+    cout << "Email:            " << person.getEmail() << endl;
+    cout << "Address:          " << person.getAddress() << endl;
+}
+
+void PersonManager::setIdLoggedUser(int newIdLoggedUser) {
+    idLoggedUser = newIdLoggedUser;
+}
+
+void PersonManager::getAllPersonsForLoggedUserFromFile(){
+}

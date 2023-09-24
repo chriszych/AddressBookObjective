@@ -69,3 +69,7 @@ void UserManager::readUsersFromFile()
 {
     Users = usersFile.readUsersFromFile();
 }
+
+int UserManager::getIdLoggedUser(){
+    return idLoggedUser;
+}

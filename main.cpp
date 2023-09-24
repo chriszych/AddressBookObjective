@@ -6,13 +6,13 @@ using namespace std;
 
 int main()
 {
-    AddressBook addressBook("Users.txt");
+    AddressBook addressBook("Users.txt", "Persons.txt");
 
     addressBook.showAllUsers();
     //addressBook.registerUser();
     //addressBook.registerUser();
-    AddressBook addressBook2("Users2.txt");
-    addressBook2.showAllUsers();
+    //AddressBook addressBook2("Users2.txt");
+    //addressBook2.showAllUsers();
 
     return 0;
 }

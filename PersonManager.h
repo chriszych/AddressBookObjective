@@ -22,10 +22,15 @@ class PersonManager {
 
     Person enterNewPersonData();
     string changeFirstLetterToUpperAndRestLettersToLower(string text);
+    void showPersonData(Person person);
+
 
 public:
-
+    PersonManager(string fileName) : personsFile(fileName) {};
     int addPerson();
+    void showAllPersons();
+    void setIdLoggedUser(int newIdLoggedUser);
+    void getAllPersonsForLoggedUserFromFile();
 
 };
 
