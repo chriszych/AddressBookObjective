@@ -22,8 +22,8 @@ public:
     void showAllUsers();
     //void loginUser();
 
-    //void addPerson();
-    //void showAllPersons();
+    void addPerson();
+    void showAllPersons();
 };
 
 #endif

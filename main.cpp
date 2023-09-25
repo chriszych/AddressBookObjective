@@ -4,11 +4,17 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     AddressBook addressBook("Users.txt", "Persons.txt");
 
-    addressBook.showAllUsers();
+    addressBook.showAllPersons();
+    addressBook.addPerson();
+    addressBook.addPerson();
+    addressBook.showAllPersons();
+    addressBook.addPerson();
+    addressBook.addPerson();
+    addressBook.showAllPersons();
+    //addressBook.showAllUsers();
     //addressBook.registerUser();
     //addressBook.registerUser();
     //AddressBook addressBook2("Users2.txt");

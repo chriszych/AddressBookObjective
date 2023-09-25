@@ -1,33 +1,26 @@
 #include "UsersFile.h"
 
-void UsersFile::addUserToFile(User user)
-{
+void UsersFile::addUserToFile(User user) {
     string userDataLine = "";
     fstream textFile;
 
     textFile.open(usersFile.c_str(), ios::app);
 
-    if (textFile.good() == true)
-    {
+    if (textFile.good() == true) {
         userDataLine = convertUserDataToLineSeparatedWithVerticalLines (user);
 
-        if (AuxiliaryMethods::isFileEmpty(textFile) == true)
-        {
+        if (AuxiliaryMethods::isFileEmpty(textFile) == true) {
             textFile << userDataLine;
-        }
-        else
-        {
+        } else {
             textFile << endl << userDataLine ;
         }
-    }
-    else
+    } else
         cout << "Opening file " << usersFile << " not succeed, no data write to it." << endl;
     textFile.close();
 }
 
 
-string UsersFile::convertUserDataToLineSeparatedWithVerticalLines (User user)
-{
+string UsersFile::convertUserDataToLineSeparatedWithVerticalLines (User user) {
     string userDataLine = "";
 
     userDataLine += AuxiliaryMethods::convertIntToString (user.getId ()) + '|';
@@ -37,8 +30,7 @@ string UsersFile::convertUserDataToLineSeparatedWithVerticalLines (User user)
     return userDataLine;
 }
 
-vector <User> UsersFile::readUsersFromFile()
-{
+vector <User> UsersFile::readUsersFromFile() {
     fstream textFile;
     vector <User> users;
     User user;
@@ -46,10 +38,8 @@ vector <User> UsersFile::readUsersFromFile()
 
     textFile.open(usersFile.c_str(), ios::in);
 
-    if (textFile.good() == true)
-    {
-        while (getline(textFile, singleUserDataSeparatedWithVerticalLines))
-        {
+    if (textFile.good() == true) {
+        while (getline(textFile, singleUserDataSeparatedWithVerticalLines)) {
             user = getUserData(singleUserDataSeparatedWithVerticalLines);
             users.push_back(user);
         }
@@ -59,22 +49,16 @@ vector <User> UsersFile::readUsersFromFile()
     return users;
 }
 
-User UsersFile::getUserData(string singleUserDataSeparatedWithVerticalLines)
-{
+User UsersFile::getUserData(string singleUserDataSeparatedWithVerticalLines) {
     User user;
     string singleUserData = "";
     int singleUserDataNumber = 1;
 
-    for (size_t charPostion = 0; charPostion < singleUserDataSeparatedWithVerticalLines.length(); ++charPostion)
-    {
-        if (singleUserDataSeparatedWithVerticalLines[charPostion] != '|')
-        {
+    for (size_t charPostion = 0; charPostion < singleUserDataSeparatedWithVerticalLines.length(); ++charPostion) {
+        if (singleUserDataSeparatedWithVerticalLines[charPostion] != '|') {
             singleUserData += singleUserDataSeparatedWithVerticalLines[charPostion];
-        }
-        else
-        {
-            switch(singleUserDataNumber)
-            {
+        } else {
+            switch(singleUserDataNumber) {
             case 1:
                 user.setId(atoi(singleUserData.c_str()));
                 break;

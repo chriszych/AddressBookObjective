@@ -26,11 +26,18 @@ class PersonManager {
 
 
 public:
-    PersonManager(string fileName) : personsFile(fileName) {};
+    PersonManager(string fileName) : personsFile(fileName) {
+        idLoggedUser = 0;
+        idLastPerson = 1;
+    };
     int addPerson();
     void showAllPersons();
-    void setIdLoggedUser(int newIdLoggedUser);
     void getAllPersonsForLoggedUserFromFile();
+
+    void setIdLoggedUser(int newIdLoggedUser);
+    void setIdLastPerson(int newIdLastPerson);
+    int getIdLoggedUser();
+    int getIdLastPerson();
 
 };
 

@@ -2,50 +2,50 @@
 
 using namespace std;
 
-void Person::setId(int newId){
-    if(newId >= 0){
+void Person::setId(int newId) {
+    if(newId >= 0) {
         id = newId;
     }
 }
-void Person::setUserId(int newUserId){
-    if(newUserId >= 0){
+void Person::setUserId(int newUserId) {
+    if(newUserId >= 0) {
         id = newUserId;
     }
 }
-void Person::setFirstName(string newFirstName){
+void Person::setFirstName(string newFirstName) {
     firstName = newFirstName;
 }
-void Person::setLastName(string newLastName){
+void Person::setLastName(string newLastName) {
     lastName = newLastName;
 }
-void Person::setPhoneNumber(string newPhoneNumber){
+void Person::setPhoneNumber(string newPhoneNumber) {
     phoneNumber = newPhoneNumber;
 }
-void Person::setEmail(string newEmail){
+void Person::setEmail(string newEmail) {
     email = newEmail;
 }
-void Person::setAddress(string newAddress){
+void Person::setAddress(string newAddress) {
     address = newAddress;
 }
 
-int Person::getId(){
+int Person::getId() {
     return id;
 }
-int Person::getUserId(){
+int Person::getUserId() {
     return userId;
 }
-string Person::getFirstName(){
+string Person::getFirstName() {
     return firstName;
 }
-string Person::getLastName(){
+string Person::getLastName() {
     return lastName;
 }
-string Person::getPhoneNumber(){
+string Person::getPhoneNumber() {
     return phoneNumber;
 }
-string Person::getEmail(){
+string Person::getEmail() {
     return email;
 }
-string Person::getAddress(){
+string Person::getAddress() {
     return address;
 }

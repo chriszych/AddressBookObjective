@@ -15,9 +15,9 @@ class UsersFile {
 
     const string usersFile;
 
-    bool isFileEmpty();
     string convertUserDataToLineSeparatedWithVerticalLines (User user);
     User getUserData (string singleUserDataSeparatedWithVerticalLines);
+    //void saveAllUsersToFile();
 
 public:
     UsersFile(string fileName) : usersFile(fileName) {};

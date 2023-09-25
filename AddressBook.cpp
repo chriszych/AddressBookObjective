@@ -1,16 +1,23 @@
 #include "AddressBook.h"
 
 
-  void AddressBook::registerUser(){
+void AddressBook::registerUser() {
 
-  userManager.registerUser();
-  }
+    userManager.registerUser();
+}
 
-  void AddressBook::showAllUsers(){
+void AddressBook::showAllUsers() {
 
-  userManager.showAllUsers();
-  }
+    userManager.showAllUsers();
+}
 
+void AddressBook::addPerson() {
 
+    personManager.setIdLastPerson(personManager.addPerson());
+}
 
+void AddressBook::showAllPersons() {
+
+    personManager.showAllPersons();
+}
 

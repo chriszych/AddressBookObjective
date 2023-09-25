@@ -16,11 +16,14 @@ class PersonsFile {
     const string personsFile;
 
     string convertPersonDataToLineSeparatedWithVerticalLines(Person person);
+    int getPersonIdFromDataSeparatedWithVerticalLines(string singlePersonDataSeparatedWithVerticalLines);
+    Person getPersonData(string singlePersonDataSeparatedWithVerticalLines);
 
 public:
 
     PersonsFile(string fileName) : personsFile(fileName) {};
     void addPersonToFile(Person person);
+    int getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser);
 
 };
 #endif

@@ -28,6 +28,10 @@ public:
     void showAllUsers();
     void readUsersFromFile();
     int getIdLoggedUser();
+    //int loginUser();
+    //void changeLoggedUserPassword();
+    //void logoutCurrentUser();
+    //string getUserData(string);
 };
 
 #endif

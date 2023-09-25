@@ -1,6 +1,6 @@
 #include "UserManager.h"
 
-void UserManager::registerUser(){
+void UserManager::registerUser() {
 
     User user = enterNewUserData();
 
@@ -13,15 +13,13 @@ void UserManager::registerUser(){
 
 }
 
-User UserManager::enterNewUserData()
-{
+User UserManager::enterNewUserData() {
     User user;
 
     user.setId(getNewUserId());
 
     string login, password;
-    do
-    {
+    do {
         cout << "Enter login: ";
         cin >> login;
         user.setLogin(login);
@@ -34,18 +32,16 @@ User UserManager::enterNewUserData()
     return user;
 }
 
-int UserManager::getNewUserId()
-{
+int UserManager::getNewUserId() {
     if (Users.empty() == true)
         return 1;
     else
         return Users.back().getId() + 1;
 }
 
-bool UserManager::checkIfLoginExist(string login)
-{
-    for (size_t i=0; i < Users.size(); i++){
-        if (Users[i].getLogin() == login){
+bool UserManager::checkIfLoginExist(string login) {
+    for (size_t i=0; i < Users.size(); i++) {
+        if (Users[i].getLogin() == login) {
             cout << endl << "User with entered login already exist." << endl;
             return true;
         }
@@ -55,21 +51,20 @@ bool UserManager::checkIfLoginExist(string login)
 
 
 
-void UserManager::showAllUsers(){
+void UserManager::showAllUsers() {
 
-    for (size_t i=0; i < Users.size(); i++){
+    for (size_t i=0; i < Users.size(); i++) {
 
-            cout << Users[i].getId() << endl;
-            cout << Users[i].getLogin() << endl;
-            cout << Users[i].getPassword() << endl;
-        }
+        cout << Users[i].getId() << endl;
+        cout << Users[i].getLogin() << endl;
+        cout << Users[i].getPassword() << endl;
+    }
 }
 
-void UserManager::readUsersFromFile()
-{
+void UserManager::readUsersFromFile() {
     Users = usersFile.readUsersFromFile();
 }
 
-int UserManager::getIdLoggedUser(){
+int UserManager::getIdLoggedUser() {
     return idLoggedUser;
 }
