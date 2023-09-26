@@ -28,7 +28,7 @@ class PersonManager {
 public:
     PersonManager(string fileName) : personsFile(fileName) {
         idLoggedUser = 0;
-        idLastPerson = 1;
+        idLastPerson = 0;
     };
     int addPerson();
     void showAllPersons();

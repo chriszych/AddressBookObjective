@@ -11,18 +11,21 @@ int PersonManager::addPerson() {
     personsFile.addPersonToFile(person);
 
     //return idLastPerson++;
-    person.setId(++idLastPerson);
+    //person.setId(++idLastPerson);
     return idLastPerson;
 }
 
 Person PersonManager::enterNewPersonData() {
     Person person;
 
-    cout << endl << getIdLastPerson();
+    //cout << endl << getIdLastPerson();
     //person.setId(getIdLastPerson());
+    //person.setId(++idLastPerson);
     person.setId(++idLastPerson);
-    cout << endl << person.getId();
-    person.setUserId(getIdLoggedUser());
+    //person.id = ++idLastPerson;
+    //cout << endl << person.getId();
+    //person.setUserId(getIdLoggedUser());
+    person.setUserId(idLoggedUser);
 
     cout << "Enter FirstName: ";
     person.setFirstName(AuxiliaryMethods::readLine());
@@ -86,7 +89,7 @@ void PersonManager::setIdLoggedUser(int newIdLoggedUser) {
 }
 
 void PersonManager::setIdLastPerson(int newIdLastPerson) {
-    idLoggedUser = newIdLastPerson;
+    idLastPerson = newIdLastPerson;
 }
 
 int PersonManager::getIdLoggedUser(){

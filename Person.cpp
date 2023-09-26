@@ -9,7 +9,7 @@ void Person::setId(int newId) {
 }
 void Person::setUserId(int newUserId) {
     if(newUserId >= 0) {
-        id = newUserId;
+        userId = newUserId;
     }
 }
 void Person::setFirstName(string newFirstName) {
