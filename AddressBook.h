@@ -20,7 +20,7 @@ public:
     };
     void registerUser();
     void showAllUsers();
-    //void loginUser();
+    void loginUser();
 
     void addPerson();
     void showAllPersons();

@@ -68,3 +68,38 @@ void UserManager::readUsersFromFile() {
 int UserManager::getIdLoggedUser() {
     return idLoggedUser;
 }
+
+int UserManager::loginUser()
+{
+    string login = "", password = "";
+
+    cout << endl << "Enter login: ";
+    login = AuxiliaryMethods::readLine();
+
+    vector <User>::iterator itr = Users.begin();
+    while (itr != Users.end())
+    {
+        if (itr -> getLogin() == login)
+        {
+            for (int attemptNumber = 3; attemptNumber > 0; attemptNumber--)
+            {
+                cout << "Enter password. Attempts remain: " << attemptNumber << ": ";
+                password = AuxiliaryMethods::readLine();
+
+                if (itr -> getPassword() == password)
+                {
+                    cout << endl << "Login successfully." << endl << endl;
+                    system("pause");
+                    return itr -> getId();
+                }
+            }
+            cout << "You have entered 3 times wrong password." << endl;
+            system("pause");
+            return 0;
+        }
+        itr++;
+    }
+    cout << "No user with such login." << endl << endl;
+    system("pause");
+    return 0;
+}

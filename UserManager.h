@@ -28,7 +28,7 @@ public:
     void showAllUsers();
     void readUsersFromFile();
     int getIdLoggedUser();
-    //int loginUser();
+    int loginUser();
     //void changeLoggedUserPassword();
     //void logoutCurrentUser();
     //string getUserData(string);

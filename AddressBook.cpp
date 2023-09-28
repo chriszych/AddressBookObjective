@@ -11,6 +11,11 @@ void AddressBook::showAllUsers() {
     userManager.showAllUsers();
 }
 
+void AddressBook::loginUser() {
+
+    userManager.loginUser();
+}
+
 void AddressBook::addPerson() {
 
     personManager.setIdLastPerson(personManager.addPerson());
