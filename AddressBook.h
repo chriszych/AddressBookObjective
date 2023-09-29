@@ -10,6 +10,7 @@ using namespace std;
 
 class AddressBook {
 
+    int idLoggedUser;
     UserManager userManager;
     PersonManager personManager;
 
@@ -24,6 +25,10 @@ public:
 
     void addPerson();
     void showAllPersons();
+    void getAllPersonsForLoggedUserFromFile();
+
+    void setIdLoggedUser(int newIdLoggedUser);
+    int getIdLogedUser();
 };
 
 #endif

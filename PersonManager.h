@@ -32,7 +32,7 @@ public:
     };
     int addPerson();
     void showAllPersons();
-    void getAllPersonsForLoggedUserFromFile();
+    void getAllPersonsForLoggedUserFromFile(int idLoggedUser);
 
     void setIdLoggedUser(int newIdLoggedUser);
     void setIdLastPerson(int newIdLastPerson);

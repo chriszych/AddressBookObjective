@@ -23,9 +23,11 @@ int main() {
     //addressBook.showAllUsers();
     //addressBook.registerUser();
     addressBook.loginUser();
+    addressBook.getAllPersonsForLoggedUserFromFile();
+    addressBook.showAllPersons();
     //addressBook.registerUser();
     //AddressBook addressBook2("Users2.txt");
-    //addressBook2.showAllUsers();
+    //addressBook.showAllUsers();
 
     return 0;
 }

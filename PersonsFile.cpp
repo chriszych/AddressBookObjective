@@ -46,7 +46,7 @@ int PersonsFile::getAllPersonsForLoggedUserFromFile(vector <Person> &persons, in
 
     if (textFile.good() == true) {
         while (getline(textFile, singlePersonDataSeparatedWithVerticalLines)) {
-            if(idLoggedUser == getPersonIdFromDataSeparatedWithVerticalLines(singlePersonDataSeparatedWithVerticalLines)) {
+            if(idLoggedUser == getUserIdFromDataSeparatedWithVerticalLines(singlePersonDataSeparatedWithVerticalLines)) {
                 person = getPersonData(singlePersonDataSeparatedWithVerticalLines);
                 persons.push_back(person);
             }
@@ -68,6 +68,14 @@ int PersonsFile::getPersonIdFromDataSeparatedWithVerticalLines(string singlePers
     int personIdStartPosition = 0;
     int personId = AuxiliaryMethods::convertStringToInt(AuxiliaryMethods::getNumber(singlePersonDataSeparatedWithVerticalLines, personIdStartPosition));
     return personId;
+}
+
+int PersonsFile::getUserIdFromDataSeparatedWithVerticalLines(string singlePersonDataSeparatedWithVerticalLines)
+{
+    int userIdStartPosition = singlePersonDataSeparatedWithVerticalLines.find_first_of('|') + 1;
+    int userId = AuxiliaryMethods::convertStringToInt(AuxiliaryMethods::getNumber(singlePersonDataSeparatedWithVerticalLines, userIdStartPosition));
+
+    return userId;
 }
 
 Person PersonsFile::getPersonData(string singlePersonDataSeparatedWithVerticalLines) {

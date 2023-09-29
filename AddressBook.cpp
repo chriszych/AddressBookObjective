@@ -13,7 +13,7 @@ void AddressBook::showAllUsers() {
 
 void AddressBook::loginUser() {
 
-    userManager.loginUser();
+    idLoggedUser = userManager.loginUser();
 }
 
 void AddressBook::addPerson() {
@@ -26,3 +26,15 @@ void AddressBook::showAllPersons() {
     personManager.showAllPersons();
 }
 
+void AddressBook::getAllPersonsForLoggedUserFromFile(){
+
+    personManager.getAllPersonsForLoggedUserFromFile(idLoggedUser);
+}
+
+void AddressBook::setIdLoggedUser(int newIdLoggedUser){
+    idLoggedUser = newIdLoggedUser;
+}
+
+int AddressBook::getIdLogedUser(){
+    return idLoggedUser;
+}

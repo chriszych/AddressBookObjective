@@ -80,7 +80,7 @@ void PersonManager::showPersonData(Person person) {
     cout << "Address:          " << person.getAddress() << endl;
 }
 
-void PersonManager::getAllPersonsForLoggedUserFromFile() {
+void PersonManager::getAllPersonsForLoggedUserFromFile(int idLoggedUser) {
     idLoggedUser = personsFile.getAllPersonsForLoggedUserFromFile(Persons, idLoggedUser);
 }
 

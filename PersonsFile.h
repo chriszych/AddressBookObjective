@@ -17,6 +17,7 @@ class PersonsFile {
 
     string convertPersonDataToLineSeparatedWithVerticalLines(Person person);
     int getPersonIdFromDataSeparatedWithVerticalLines(string singlePersonDataSeparatedWithVerticalLines);
+    int getUserIdFromDataSeparatedWithVerticalLines(string singlePersonDataSeparatedWithVerticalLines);
     Person getPersonData(string singlePersonDataSeparatedWithVerticalLines);
 
 public:
