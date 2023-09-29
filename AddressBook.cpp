@@ -16,6 +16,12 @@ void AddressBook::loginUser() {
     idLoggedUser = userManager.loginUser();
 }
 
+void AddressBook::changeLoggedUserPassword() {
+
+    userManager.changeLoggedUserPassword(idLoggedUser);
+}
+
+
 void AddressBook::addPerson() {
 
     personManager.setIdLastPerson(personManager.addPerson());
@@ -38,3 +44,5 @@ void AddressBook::setIdLoggedUser(int newIdLoggedUser){
 int AddressBook::getIdLogedUser(){
     return idLoggedUser;
 }
+
+

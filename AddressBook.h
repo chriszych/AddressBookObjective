@@ -22,6 +22,7 @@ public:
     void registerUser();
     void showAllUsers();
     void loginUser();
+    void changeLoggedUserPassword();
 
     void addPerson();
     void showAllPersons();

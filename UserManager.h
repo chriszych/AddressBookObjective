@@ -27,11 +27,13 @@ public:
     void registerUser();
     void showAllUsers();
     void readUsersFromFile();
-    int getIdLoggedUser();
     int loginUser();
-    //void changeLoggedUserPassword();
+    void changeLoggedUserPassword(int idLoggedUser);
     //void logoutCurrentUser();
     //string getUserData(string);
+
+    int getIdLoggedUser();
+    void setIdLoggedUser(int newIdLoggedUser);
 };
 
 #endif

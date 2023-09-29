@@ -25,6 +25,7 @@ int main() {
     addressBook.loginUser();
     addressBook.getAllPersonsForLoggedUserFromFile();
     addressBook.showAllPersons();
+    addressBook.changeLoggedUserPassword();
     //addressBook.registerUser();
     //AddressBook addressBook2("Users2.txt");
     //addressBook.showAllUsers();

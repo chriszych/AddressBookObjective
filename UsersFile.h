@@ -17,12 +17,13 @@ class UsersFile {
 
     string convertUserDataToLineSeparatedWithVerticalLines (User user);
     User getUserData (string singleUserDataSeparatedWithVerticalLines);
-    //void saveAllUsersToFile();
+
 
 public:
     UsersFile(string fileName) : usersFile(fileName) {};
     void addUserToFile(User user);
     vector <User> readUsersFromFile();
+    void saveAllUsersToFile(vector <User> &Users);
 
 };
 
