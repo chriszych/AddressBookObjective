@@ -33,6 +33,7 @@ public:
     int addPerson();
     void showAllPersons();
     void getAllPersonsForLoggedUserFromFile(int idLoggedUser);
+    void clearAllPersons();
 
     void setIdLoggedUser(int newIdLoggedUser);
     void setIdLastPerson(int newIdLastPerson);

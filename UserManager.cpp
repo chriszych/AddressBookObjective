@@ -110,7 +110,8 @@ int UserManager::loginUser()
     return 0;
 }
 
-void UserManager::changeLoggedUserPassword(int idLoggedUser)
+//void UserManager::changeLoggedUserPassword(int idLoggedUser)
+void UserManager::changeLoggedUserPassword()
 {
     string newPassword = "";
     cout << "Current user ID: " << getIdLoggedUser() << endl;
@@ -129,4 +130,11 @@ void UserManager::changeLoggedUserPassword(int idLoggedUser)
 
     usersFile.saveAllUsersToFile(Users);
     //zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}
+
+void UserManager::logoutCurrentUser(){
+
+                //idZalogowanegoUzytkownika = 0;
+                setIdLoggedUser(0);
+                //adresaci.clear();
 }
