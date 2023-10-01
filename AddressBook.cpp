@@ -1,21 +1,43 @@
 #include "AddressBook.h"
 
 
-//AddressBook::AddressBook(string fileName){
-//    userManager.readUsersFromFile();
-//}
+void AddressBook::registerUser() {
+
+    userManager.registerUser();
+}
+
+void AddressBook::showAllUsers() {
+
+    userManager.showAllUsers();
+}
+
+void AddressBook::loginUser() {
+
+    personManager.getAllPersonsForLoggedUserFromFile(userManager.loginUser());
+}
+
+void AddressBook::changeLoggedUserPassword() {
+
+    userManager.changeLoggedUserPassword();
+}
+
+void AddressBook::logoutCurrentUser() {
+
+    userManager.logoutCurrentUser();
+    personManager.setIdLoggedUser(0);
+    personManager.clearAllPersons();
+}
 
 
-  void AddressBook::registerUser(){
+void AddressBook::addPerson() {
 
-  userManager.registerUser();
-  }
+    personManager.setIdLastPerson(personManager.addPerson());
+}
 
-  void AddressBook::showAllUsers(){
+void AddressBook::showAllPersons() {
 
-  userManager.showAllUsers();
-  }
-
+    personManager.showAllPersons();
+}
 
 
 

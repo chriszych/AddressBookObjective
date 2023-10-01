@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>0</y>
+      <w>330</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>AddressBook
+--
+- userManager : UserManager
+- personManager : PersonManager
+--
+AddressBook()
++ registerUser() : void
++ showAllusers() : void
++ loginUser() : void
++ changeLoggedUserPassword() : void
++ logoutCurrentUser() : void
++ addPerson() : void
++ showAllPersons() : void
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>710</y>
+      <w>140</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>User
+--
+- Id : Integer
+- login : string
+- password: string
+--
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>210</y>
+      <w>290</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>UserManager
+--
+- idLoggedUser: integer
+- Users: vector &lt;User&gt;
+- usersFile : UsersFile
+--
+UserManager()
++ registerUser() : void
++ loginUser() : Integer
++ showAllUsers() : void
++ readUsersFromFile() : void
++ changeLoggedUserPassword() : void
++ logoutCurrentUser() : void
+- enterNewUserData() : User
+- getNewUserId() : int
+- checkIfLoginExist(string) : bool
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>510</y>
+      <w>400</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>UsersFile
+--
+- usersFile: string
+--
+UsersFile();
++ addUserToFile(User) : void
++ readUsersFromFile() : vector &lt;User&gt;
++ saveAllUsersToFile(vector &lt;User&gt;) : void
+- convertUserDataToLineSeparatedWithVerticalLines(User) : string
+- getUserData(string) : User
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>730</y>
+      <w>280</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>AuxiliaryMethods
+--
+
+--
++ convertIntToString (integer) : string
++ convertStringToInt(string) : integer
++ readLine () : string
++ isFileEmpty(fstream) : bool
++ getNumber(string, integer) : string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>210</y>
+      <w>430</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>PersonManager
+--
+- idLoggedUser: integer
+- idLastPerson : integer
+- Persons: vector &lt;Person&gt;
+- personsFile : PersonsFile
+--
+PersonManager()
++ addPerson() : int
++ showAllPersons() : void
++ getAllPersonsForLoggedUserFromFile(integer) : void
++ clearAllPersons() : void
+- enterNewPersonData() : Person
+- changeFirstLetterToUpperAndRestLettersToLower(string) : string
+- showPersonData(Person) : void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>510</y>
+      <w>480</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>PersonsFile
+--
+- personsFile: string
+--
+PersonsFile()
++ addPersonToFile(Person) : void
++ getAllPersonsForLoggedUserFromFile(vector &lt;Person&gt;, integer) : integer
+- convertPersonDataToLineSeparatedWithVerticalLines(Person) : string
+- getPersonIdFromDataSeparatedWithVerticalLines(string) : integer
+- getUserIdFromDataSeparatedWithVerticalLines(string) : integer
+- getPersonData(string) : Person
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>690</y>
+      <w>180</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Person
+--
+- id : integer
+- userId : integer
+- firstName : string
+- lastName : string
+- phoneNumber : string
+- email : string
+- address : string
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

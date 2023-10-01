@@ -1,54 +1,36 @@
 #include "UsersFile.h"
 
-void UsersFile::addUserToFile(User user)
-{
+void UsersFile::addUserToFile(User user) {
     string userDataLine = "";
     fstream textFile;
 
     textFile.open(usersFile.c_str(), ios::app);
 
-    if (textFile.good() == true)
-    {
+    if (textFile.good() == true) {
         userDataLine = convertUserDataToLineSeparatedWithVerticalLines (user);
 
-        if (isFileEmpty() == true)
-        {
+        if (AuxiliaryMethods::isFileEmpty(textFile) == true) {
             textFile << userDataLine;
-        }
-        else
-        {
+        } else {
             textFile << endl << userDataLine ;
         }
-    }
-    else
+    } else
         cout << "Opening file " << usersFile << " not succeed, no data write to it." << endl;
     textFile.close();
 }
 
-bool UsersFile::isFileEmpty()
-{
-    fstream textFile;
 
-    textFile.seekg(0, ios::end);
-    if (textFile.tellg() == 0)
-        return true;
-    else
-        return false;
-}
-
-string UsersFile::convertUserDataToLineSeparatedWithVerticalLines (User user)
-{
+string UsersFile::convertUserDataToLineSeparatedWithVerticalLines (User user) {
     string userDataLine = "";
 
-    userDataLine += AuxiliaryClasses::convertIntToString (user.getId ()) + '|';
+    userDataLine += AuxiliaryMethods::convertIntToString (user.getId ()) + '|';
     userDataLine += user.getLogin() + '|';
     userDataLine += user.getPassword() + '|';
 
     return userDataLine;
 }
 
-vector <User> UsersFile::readUsersFromFile()
-{
+vector <User> UsersFile::readUsersFromFile() {
     fstream textFile;
     vector <User> users;
     User user;
@@ -56,10 +38,8 @@ vector <User> UsersFile::readUsersFromFile()
 
     textFile.open(usersFile.c_str(), ios::in);
 
-    if (textFile.good() == true)
-    {
-        while (getline(textFile, singleUserDataSeparatedWithVerticalLines))
-        {
+    if (textFile.good() == true) {
+        while (getline(textFile, singleUserDataSeparatedWithVerticalLines)) {
             user = getUserData(singleUserDataSeparatedWithVerticalLines);
             users.push_back(user);
         }
@@ -69,22 +49,16 @@ vector <User> UsersFile::readUsersFromFile()
     return users;
 }
 
-User UsersFile::getUserData(string singleUserDataSeparatedWithVerticalLines)
-{
+User UsersFile::getUserData(string singleUserDataSeparatedWithVerticalLines) {
     User user;
     string singleUserData = "";
     int singleUserDataNumber = 1;
 
-    for (size_t charPostion = 0; charPostion < singleUserDataSeparatedWithVerticalLines.length(); ++charPostion)
-    {
-        if (singleUserDataSeparatedWithVerticalLines[charPostion] != '|')
-        {
+    for (size_t charPostion = 0; charPostion < singleUserDataSeparatedWithVerticalLines.length(); ++charPostion) {
+        if (singleUserDataSeparatedWithVerticalLines[charPostion] != '|') {
             singleUserData += singleUserDataSeparatedWithVerticalLines[charPostion];
-        }
-        else
-        {
-            switch(singleUserDataNumber)
-            {
+        } else {
+            switch(singleUserDataNumber) {
             case 1:
                 user.setId(atoi(singleUserData.c_str()));
                 break;
@@ -100,4 +74,28 @@ User UsersFile::getUserData(string singleUserDataSeparatedWithVerticalLines)
         }
     }
     return user;
+}
+
+void UsersFile::saveAllUsersToFile(vector <User> &Users) {
+    fstream textFile;
+    string userDataLine = "";
+    vector <User>::iterator itrEnd = --Users.end();
+
+    textFile.open(usersFile.c_str(), ios::out);
+
+    if (textFile.good() == true) {
+        for (vector <User>::iterator itr = Users.begin(); itr != Users.end(); itr++) {
+            userDataLine = convertUserDataToLineSeparatedWithVerticalLines(*itr);
+
+            if (itr == itrEnd) {
+                textFile << userDataLine;
+            } else {
+                textFile << userDataLine << endl;
+            }
+            userDataLine = "";
+        }
+    } else {
+        cout << "Failed to open " << usersFile << " file." << endl;
+    }
+    textFile.close();
 }
