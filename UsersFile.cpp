@@ -76,33 +76,25 @@ User UsersFile::getUserData(string singleUserDataSeparatedWithVerticalLines) {
     return user;
 }
 
-void UsersFile::saveAllUsersToFile(vector <User> &Users)
-{
+void UsersFile::saveAllUsersToFile(vector <User> &Users) {
     fstream textFile;
     string userDataLine = "";
     vector <User>::iterator itrEnd = --Users.end();
 
     textFile.open(usersFile.c_str(), ios::out);
 
-    if (textFile.good() == true)
-    {
-        for (vector <User>::iterator itr = Users.begin(); itr != Users.end(); itr++)
-        {
+    if (textFile.good() == true) {
+        for (vector <User>::iterator itr = Users.begin(); itr != Users.end(); itr++) {
             userDataLine = convertUserDataToLineSeparatedWithVerticalLines(*itr);
 
-            if (itr == itrEnd)
-            {
-               textFile << userDataLine;
-            }
-            else
-            {
+            if (itr == itrEnd) {
+                textFile << userDataLine;
+            } else {
                 textFile << userDataLine << endl;
             }
             userDataLine = "";
         }
-    }
-    else
-    {
+    } else {
         cout << "Failed to open " << usersFile << " file." << endl;
     }
     textFile.close();

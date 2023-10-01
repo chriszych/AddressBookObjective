@@ -6,8 +6,8 @@
     <coordinates>
       <x>340</x>
       <y>0</y>
-      <w>230</w>
-      <h>190</h>
+      <w>330</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>AddressBook
 --
@@ -18,6 +18,8 @@ AddressBook()
 + registerUser() : void
 + showAllusers() : void
 + loginUser() : void
++ changeLoggedUserPassword() : void
++ logoutCurrentUser() : void
 + addPerson() : void
 + showAllPersons() : void
 
@@ -47,8 +49,8 @@ AddressBook()
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>590</x>
-      <y>190</y>
+      <x>580</x>
+      <y>210</y>
       <w>290</w>
       <h>290</h>
     </coordinates>
@@ -67,9 +69,8 @@ UserManager()
 + logoutCurrentUser() : void
 - enterNewUserData() : User
 - getNewUserId() : int
-- checkIfLoginExist() : bool
-- getUserData(string) : string
-- getIdLoggedUser() : integer
+- checkIfLoginExist(string) : bool
+
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -77,19 +78,19 @@ UserManager()
     <id>UMLClass</id>
     <coordinates>
       <x>490</x>
-      <y>490</y>
+      <y>510</y>
       <w>400</w>
-      <h>210</h>
+      <h>180</h>
     </coordinates>
     <panel_attributes>UsersFile
 --
 - usersFile: string
 --
 UsersFile();
-+ addUserToFile() : void
++ addUserToFile(User) : void
 + readUsersFromFile() : vector &lt;User&gt;
-- convertUserDataToLineSeparatedWithVerticalLines() : string
-- saveAllUsersToFile() : void
++ saveAllUsersToFile(vector &lt;User&gt;) : void
+- convertUserDataToLineSeparatedWithVerticalLines(User) : string
 - getUserData(string) : User
 </panel_attributes>
     <additional_attributes/>
@@ -109,7 +110,7 @@ UsersFile();
 + convertIntToString (integer) : string
 + convertStringToInt(string) : integer
 + readLine () : string
-+ isFileEmpty() : bool
++ isFileEmpty(fstream) : bool
 + getNumber(string, integer) : string
 </panel_attributes>
     <additional_attributes/>
@@ -118,7 +119,7 @@ UsersFile();
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>200</y>
+      <y>210</y>
       <w>430</w>
       <h>270</h>
     </coordinates>
@@ -132,8 +133,8 @@ UsersFile();
 PersonManager()
 + addPerson() : int
 + showAllPersons() : void
-+ setIdLoggedUser(integer) : void
-+ getAllPersonsForLoggedUserFromFile() : void
++ getAllPersonsForLoggedUserFromFile(integer) : void
++ clearAllPersons() : void
 - enterNewPersonData() : Person
 - changeFirstLetterToUpperAndRestLettersToLower(string) : string
 - showPersonData(Person) : void
@@ -145,9 +146,9 @@ PersonManager()
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>500</y>
+      <y>510</y>
       <w>480</w>
-      <h>160</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>PersonsFile
 --
@@ -156,8 +157,9 @@ PersonManager()
 PersonsFile()
 + addPersonToFile(Person) : void
 + getAllPersonsForLoggedUserFromFile(vector &lt;Person&gt;, integer) : integer
-- convertPersonDataToLineSeparatedWithVerticalLines() : string
+- convertPersonDataToLineSeparatedWithVerticalLines(Person) : string
 - getPersonIdFromDataSeparatedWithVerticalLines(string) : integer
+- getUserIdFromDataSeparatedWithVerticalLines(string) : integer
 - getPersonData(string) : Person
 
 </panel_attributes>

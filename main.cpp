@@ -7,36 +7,20 @@ using namespace std;
 int main() {
     AddressBook addressBook("Users.txt", "Persons.txt");
 
-    //addressBook.showAllPersons();
-    //addressBook.addPerson();
-    //addressBook.addPerson();
-    //addressBook.showAllPersons();
-    //addressBook.addPerson();
-    //addressBook.addPerson();
-    //addressBook.addPerson();
-    //addressBook.addPerson();
-    //addressBook.showAllPersons();
-    //addressBook.addPerson();
-    //addressBook.showAllPersons();
-    //addressBook.addPerson();
-    //addressBook.showAllPersons();
-    //addressBook.showAllUsers();
-    //addressBook.registerUser();
+    addressBook.showAllUsers();
+    addressBook.registerUser();
+    addressBook.showAllUsers();
     addressBook.loginUser();
-//    addressBook.getAllPersonsForLoggedUserFromFile();
+    addressBook.changeLoggedUserPassword();
+
     addressBook.showAllPersons();
+    addressBook.addPerson();
+    addressBook.showAllPersons();
+
     addressBook.logoutCurrentUser();
-//    addressBook.getAllPersonsForLoggedUserFromFile();
     addressBook.showAllPersons();
     addressBook.loginUser();
     addressBook.showAllPersons();
-    addressBook.logoutCurrentUser();
-    addressBook.loginUser();
-    addressBook.showAllPersons();
-    //addressBook.changeLoggedUserPassword();
-    //addressBook.registerUser();
-    //AddressBook addressBook2("Users2.txt");
-    //addressBook.showAllUsers();
 
     return 0;
 }

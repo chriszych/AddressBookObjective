@@ -34,9 +34,7 @@ void PersonsFile::addPersonToFile(Person person) {
     system("pause");
 }
 
-int PersonsFile::getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser)
-//int wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika)
-{
+int PersonsFile::getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser) {
     Person person;
     int idLastPerson = 0;
     string singlePersonDataSeparatedWithVerticalLines = "";
@@ -70,8 +68,7 @@ int PersonsFile::getPersonIdFromDataSeparatedWithVerticalLines(string singlePers
     return personId;
 }
 
-int PersonsFile::getUserIdFromDataSeparatedWithVerticalLines(string singlePersonDataSeparatedWithVerticalLines)
-{
+int PersonsFile::getUserIdFromDataSeparatedWithVerticalLines(string singlePersonDataSeparatedWithVerticalLines) {
     int userIdStartPosition = singlePersonDataSeparatedWithVerticalLines.find_first_of('|') + 1;
     int userId = AuxiliaryMethods::convertStringToInt(AuxiliaryMethods::getNumber(singlePersonDataSeparatedWithVerticalLines, userIdStartPosition));
 

@@ -23,15 +23,16 @@ class UserManager {
     bool checkIfLoginExist(string login);
 
 public:
-    UserManager(string fileName) : usersFile(fileName) {};
+    UserManager(string fileName) : usersFile(fileName) {
+        idLoggedUser = 0;
+    };
     void registerUser();
     void showAllUsers();
     void readUsersFromFile();
     int loginUser();
- //   void changeLoggedUserPassword(int idLoggedUser);
+
     void changeLoggedUserPassword();
     void logoutCurrentUser();
-    //string getUserData(string);
 
     int getIdLoggedUser();
     void setIdLoggedUser(int newIdLoggedUser);

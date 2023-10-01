@@ -10,21 +10,13 @@ int PersonManager::addPerson() {
     Persons.push_back(person);
     personsFile.addPersonToFile(person);
 
-    //return idLastPerson++;
-    //person.setId(++idLastPerson);
     return idLastPerson;
 }
 
 Person PersonManager::enterNewPersonData() {
     Person person;
 
-    //cout << endl << getIdLastPerson();
-    //person.setId(getIdLastPerson());
-    //person.setId(++idLastPerson);
     person.setId(++idLastPerson);
-    //person.id = ++idLastPerson;
-    //cout << endl << person.getId();
-    //person.setUserId(getIdLoggedUser());
     person.setUserId(idLoggedUser);
 
     cout << "Enter FirstName: ";
@@ -72,6 +64,7 @@ void PersonManager::showAllPersons() {
 }
 
 void PersonManager::showPersonData(Person person) {
+
     cout << endl << "Id:       " << person.getId() << endl;
     cout << "First Name:       " << person.getFirstName() << endl;
     cout << "Last Name:        " << person.getLastName() << endl;
@@ -81,12 +74,13 @@ void PersonManager::showPersonData(Person person) {
 }
 
 
-void PersonManager::clearAllPersons(){
+void PersonManager::clearAllPersons() {
     Persons.clear();
 }
 
-void PersonManager::getAllPersonsForLoggedUserFromFile(int idLoggedUser) {
-    idLoggedUser = personsFile.getAllPersonsForLoggedUserFromFile(Persons, idLoggedUser);
+void PersonManager::getAllPersonsForLoggedUserFromFile(int newIdLoggedUser) {
+    idLoggedUser = newIdLoggedUser;
+    idLastPerson = personsFile.getAllPersonsForLoggedUserFromFile(Persons, newIdLoggedUser);
 }
 
 void PersonManager::setIdLoggedUser(int newIdLoggedUser) {
@@ -97,10 +91,10 @@ void PersonManager::setIdLastPerson(int newIdLastPerson) {
     idLastPerson = newIdLastPerson;
 }
 
-int PersonManager::getIdLoggedUser(){
+int PersonManager::getIdLoggedUser() {
     return idLoggedUser;
 }
 
-int PersonManager::getIdLastPerson(){
+int PersonManager::getIdLastPerson() {
     return idLastPerson;
 }
