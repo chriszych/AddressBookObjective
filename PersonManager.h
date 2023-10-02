@@ -17,7 +17,7 @@ class PersonManager {
 
     int idLoggedUser;
     int idLastPerson;
-    vector <Person> Persons;
+    vector <Person> persons;
     PersonsFile personsFile;
 
     Person enterNewPersonData();
