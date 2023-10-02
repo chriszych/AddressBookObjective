@@ -16,7 +16,6 @@ using namespace std;
 class PersonManager {
 
     int idLoggedUser;
-    int idLastPerson;
     vector <Person> persons;
     PersonsFile personsFile;
 
@@ -28,17 +27,14 @@ class PersonManager {
 public:
     PersonManager(string fileName) : personsFile(fileName) {
         idLoggedUser = 0;
-        idLastPerson = 0;
     };
-    int addPerson();
+    void addPerson();
     void showAllPersons();
     void getAllPersonsForLoggedUserFromFile(int idLoggedUser);
     void clearAllPersons();
 
     void setIdLoggedUser(int newIdLoggedUser);
-    void setIdLastPerson(int newIdLastPerson);
     int getIdLoggedUser();
-    int getIdLastPerson();
 
 };
 

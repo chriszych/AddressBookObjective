@@ -1,6 +1,6 @@
 #include "PersonManager.h"
 
-int PersonManager::addPerson() {
+void PersonManager::addPerson() {
     Person person;
 
     system("cls");
@@ -9,14 +9,12 @@ int PersonManager::addPerson() {
 
     persons.push_back(person);
     personsFile.addPersonToFile(person);
-
-    return idLastPerson;
 }
 
 Person PersonManager::enterNewPersonData() {
     Person person;
 
-    person.setId(++idLastPerson);
+    person.setId(personsFile.getIdLastPerson()+1);
     person.setUserId(idLoggedUser);
 
     cout << "Enter FirstName: ";
@@ -80,21 +78,13 @@ void PersonManager::clearAllPersons() {
 
 void PersonManager::getAllPersonsForLoggedUserFromFile(int newIdLoggedUser) {
     idLoggedUser = newIdLoggedUser;
-    idLastPerson = personsFile.getAllPersonsForLoggedUserFromFile(persons, newIdLoggedUser);
+    personsFile.getAllPersonsForLoggedUserFromFile(persons, newIdLoggedUser);
 }
 
 void PersonManager::setIdLoggedUser(int newIdLoggedUser) {
     idLoggedUser = newIdLoggedUser;
 }
 
-void PersonManager::setIdLastPerson(int newIdLastPerson) {
-    idLastPerson = newIdLastPerson;
-}
-
 int PersonManager::getIdLoggedUser() {
     return idLoggedUser;
-}
-
-int PersonManager::getIdLastPerson() {
-    return idLastPerson;
 }

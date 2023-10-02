@@ -14,6 +14,7 @@ using namespace std;
 class PersonsFile {
 
     const string personsFile;
+    int idLastPerson;
 
     string convertPersonDataToLineSeparatedWithVerticalLines(Person person);
     int getPersonIdFromDataSeparatedWithVerticalLines(string singlePersonDataSeparatedWithVerticalLines);
@@ -22,9 +23,14 @@ class PersonsFile {
 
 public:
 
-    PersonsFile(string fileName) : personsFile(fileName) {};
+    PersonsFile(string fileName) : personsFile(fileName) {
+        idLastPerson = 0;
+    };
     void addPersonToFile(Person person);
-    int getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser);
+    void getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser);
+
+    void setIdLastPerson(int newIdLastPerson);
+    int getIdLastPerson();
 
 };
 #endif
