@@ -31,7 +31,7 @@ void AddressBook::logoutCurrentUser() {
 
 void AddressBook::addPerson() {
 
-    personManager.setIdLastPerson(personManager.addPerson());
+    personManager.addPerson();
 }
 
 void AddressBook::showAllPersons() {

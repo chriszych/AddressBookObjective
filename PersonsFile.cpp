@@ -34,9 +34,8 @@ void PersonsFile::addPersonToFile(Person person) {
     system("pause");
 }
 
-int PersonsFile::getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser) {
+void PersonsFile::getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser) {
     Person person;
-    int idLastPerson = 0;
     string singlePersonDataSeparatedWithVerticalLines = "";
     string lastPersonInFileData = "";
     fstream textFile;
@@ -57,9 +56,7 @@ int PersonsFile::getAllPersonsForLoggedUserFromFile(vector <Person> &persons, in
 
     if (lastPersonInFileData != "") {
         idLastPerson = getPersonIdFromDataSeparatedWithVerticalLines(lastPersonInFileData);
-        return idLastPerson;
-    } else
-        return 0;
+    }
 }
 
 int PersonsFile::getPersonIdFromDataSeparatedWithVerticalLines(string singlePersonDataSeparatedWithVerticalLines) {
@@ -112,4 +109,12 @@ Person PersonsFile::getPersonData(string singlePersonDataSeparatedWithVerticalLi
         }
     }
     return person;
+}
+
+void PersonsFile::setIdLastPerson(int newIdLastPerson) {
+    idLastPerson = newIdLastPerson;
+}
+
+int PersonsFile::getIdLastPerson() {
+    return idLastPerson;
 }

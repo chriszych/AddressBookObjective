@@ -1,22 +1,20 @@
 #include "PersonManager.h"
 
-int PersonManager::addPerson() {
+void PersonManager::addPerson() {
     Person person;
 
     system("cls");
     cout << " >>> ADDING NEW PERSON <<<" << endl << endl;
     person = enterNewPersonData();
 
-    Persons.push_back(person);
+    persons.push_back(person);
     personsFile.addPersonToFile(person);
-
-    return idLastPerson;
 }
 
 Person PersonManager::enterNewPersonData() {
     Person person;
 
-    person.setId(++idLastPerson);
+    person.setId(personsFile.getIdLastPerson()+1);
     person.setUserId(idLoggedUser);
 
     cout << "Enter FirstName: ";
@@ -50,10 +48,10 @@ string PersonManager::changeFirstLetterToUpperAndRestLettersToLower(string text)
 void PersonManager::showAllPersons() {
 
     system("cls");
-    if (!Persons.empty()) {
+    if (!persons.empty()) {
         cout << "             >>> PERSONS <<<" << endl;
         cout << "-----------------------------------------------" << endl;
-        for (vector <Person> :: iterator itr = Persons.begin(); itr != Persons.end(); itr++) {
+        for (vector <Person> :: iterator itr = persons.begin(); itr != persons.end(); itr++) {
             showPersonData(*itr);
         }
         cout << endl;
@@ -75,26 +73,18 @@ void PersonManager::showPersonData(Person person) {
 
 
 void PersonManager::clearAllPersons() {
-    Persons.clear();
+    persons.clear();
 }
 
 void PersonManager::getAllPersonsForLoggedUserFromFile(int newIdLoggedUser) {
     idLoggedUser = newIdLoggedUser;
-    idLastPerson = personsFile.getAllPersonsForLoggedUserFromFile(Persons, newIdLoggedUser);
+    personsFile.getAllPersonsForLoggedUserFromFile(persons, newIdLoggedUser);
 }
 
 void PersonManager::setIdLoggedUser(int newIdLoggedUser) {
     idLoggedUser = newIdLoggedUser;
 }
 
-void PersonManager::setIdLastPerson(int newIdLastPerson) {
-    idLastPerson = newIdLastPerson;
-}
-
 int PersonManager::getIdLoggedUser() {
     return idLoggedUser;
-}
-
-int PersonManager::getIdLastPerson() {
-    return idLastPerson;
 }
