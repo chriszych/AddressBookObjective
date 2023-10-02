@@ -23,7 +23,7 @@ public:
     UsersFile(string fileName) : usersFile(fileName) {};
     void addUserToFile(User user);
     vector <User> readUsersFromFile();
-    void saveAllUsersToFile(vector <User> &Users);
+    void saveAllUsersToFile(vector <User> &users);
 
 };
 
