@@ -7,6 +7,7 @@
 
 #include <fstream>
 #include <cstdlib>
+#include <algorithm>
 
 using namespace std;
 
@@ -18,6 +19,10 @@ public:
     static string readLine();
     static bool isFileEmpty(fstream &textFile);
     static string getNumber(string text, int charPosition);
+    static string changeFirstLetterToUpperAndRestLettersToLower(string text);
+    static char readChar();
+    static char selectMainMenuOption();
+    static char selectUserMenuOption();
 
 };
 

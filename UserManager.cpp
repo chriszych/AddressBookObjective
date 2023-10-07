@@ -61,10 +61,6 @@ void UserManager::showAllUsers() {
     }
 }
 
-void UserManager::readUsersFromFile() {
-    users = usersFile.readUsersFromFile();
-}
-
 int UserManager::getIdLoggedUser() {
     return idLoggedUser;
 }
@@ -92,7 +88,8 @@ int UserManager::loginUser() {
                     cout << endl << "user ID: " << itr -> getId() << endl << endl; //test
                     setIdLoggedUser(itr -> getId());
                     system("pause");
-                    return itr -> getId();
+                    idLoggedUser = itr -> getId();
+                    return idLoggedUser;
                 }
             }
             cout << "You have entered 3 times wrong password." << endl;
@@ -127,5 +124,13 @@ void UserManager::changeLoggedUserPassword() {
 
 void UserManager::logoutCurrentUser() {
 
-    setIdLoggedUser(0);
+    idLoggedUser = 0;
+}
+
+bool UserManager::isUserLoggedIn() {
+
+        if(idLoggedUser > 0)
+            return true;
+        else
+            return false;
 }

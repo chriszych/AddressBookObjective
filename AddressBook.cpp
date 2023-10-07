@@ -13,7 +13,11 @@ void AddressBook::showAllUsers() {
 
 void AddressBook::loginUser() {
 
-    personManager.getAllPersonsForLoggedUserFromFile(userManager.loginUser());
+    userManager.loginUser();
+    if(userManager.isUserLoggedIn())
+    {
+        personManager = new PersonManager(PERSONS_FILE, userManager.getIdLoggedUser());
+    }
 }
 
 void AddressBook::changeLoggedUserPassword() {
@@ -24,20 +28,40 @@ void AddressBook::changeLoggedUserPassword() {
 void AddressBook::logoutCurrentUser() {
 
     userManager.logoutCurrentUser();
-    personManager.setIdLoggedUser(0);
-    personManager.clearAllPersons();
+    delete personManager;
+    personManager = NULL;
+    //personManager.setIdLoggedUser(0);
+    //personManager.clearAllPersons();
 }
 
 
 void AddressBook::addPerson() {
 
-    personManager.addPerson();
+    if(userManager.isUserLoggedIn()){
+        personManager -> addPerson();
+    } else {
+        cout << "To add person you have to be logged first." << endl;
+        system("pause");
+    }
 }
 
 void AddressBook::showAllPersons() {
 
-    personManager.showAllPersons();
+    if(userManager.isUserLoggedIn()){
+        personManager -> showAllPersons();
+    } else {
+        cout << "To show persons you have to be logged first." << endl;
+        system("pause");
+    }
 }
 
+bool AddressBook::isUserLoggedIn() {
+
+    if(userManager.isUserLoggedIn()){
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
