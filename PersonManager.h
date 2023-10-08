@@ -19,7 +19,6 @@ class PersonManager {
     const int ID_LOGGED_USER;
     vector <Person> persons;
 
-
     Person enterNewPersonData();
     void showPersonData(Person person);
 
