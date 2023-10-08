@@ -39,18 +39,22 @@ int main() {
                 break;
             case '2':
                 cout << "Position No 2. Find Person by FirstName - TBD" << endl;
+                system("pause");
                 break;
             case '3':
                 cout << "Position No 3. Find Person by SureName - TBD" << endl;
+                system("pause");
                 break;
             case '4':
                 addressBook.showAllPersons();
                 break;
             case '5':
                 cout << "Position No 5. Delete Person - TBD" << endl;
+                system("pause");
                 break;
             case '6':
                 cout << "Position No 6. Edit Person - TBD" << endl;
+                system("pause");
                 break;
             case '7':
                 addressBook.changeLoggedUserPassword();

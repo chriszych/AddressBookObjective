@@ -15,9 +15,10 @@ using namespace std;
 
 class PersonManager {
 
+    PersonsFile personsFile;
     const int ID_LOGGED_USER;
     vector <Person> persons;
-    PersonsFile personsFile;
+
 
     Person enterNewPersonData();
     void showPersonData(Person person);
@@ -28,6 +29,7 @@ public:
         : personsFile(fileName), ID_LOGGED_USER(idLoggedUser) {
         personsFile.getAllPersonsForLoggedUserFromFile(persons, ID_LOGGED_USER);
     };
+
     void addPerson();
     void showAllPersons();
 

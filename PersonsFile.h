@@ -26,6 +26,7 @@ public:
     PersonsFile(string fileName) : PERSONS_FILE(fileName) {
         idLastPerson = 0;
     };
+
     bool addPersonToFile(Person person);
     void getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser);
 
