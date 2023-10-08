@@ -38,3 +38,27 @@ string AuxiliaryMethods::getNumber(string text, int charPosition) {
     }
     return number;
 }
+
+string AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(string text) {
+    if (!text.empty()) {
+        transform(text.begin(), text.end(), text.begin(), ::tolower);
+        text[0] = toupper(text[0]);
+    }
+    return text;
+}
+
+char AuxiliaryMethods::readChar() {
+    string lineInput = "";
+    char lineChar  = {0};
+
+    while (true) {
+        getline(cin, lineInput);
+
+        if (lineInput.length() == 1) {
+            lineChar = lineInput[0];
+            break;
+        }
+        cout << "This is not a single character. Enter again." << endl;
+    }
+    return lineChar;
+}

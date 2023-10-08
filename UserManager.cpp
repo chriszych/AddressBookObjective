@@ -22,12 +22,12 @@ User UserManager::enterNewUserData() {
     string login, password;
     do {
         cout << "Enter login: ";
-         login = AuxiliaryMethods::readLine();
+        login = AuxiliaryMethods::readLine();
         user.setLogin(login);
     } while (checkIfLoginExist(user.getLogin()) == true);
 
     cout << "Enter password: ";
-     password = AuxiliaryMethods::readLine();
+    password = AuxiliaryMethods::readLine();
     user.setPassword(password);
 
     return user;
@@ -61,10 +61,6 @@ void UserManager::showAllUsers() {
     }
 }
 
-void UserManager::readUsersFromFile() {
-    users = usersFile.readUsersFromFile();
-}
-
 int UserManager::getIdLoggedUser() {
     return idLoggedUser;
 }
@@ -89,10 +85,10 @@ int UserManager::loginUser() {
 
                 if (itr -> getPassword() == password) {
                     cout << endl << "Login successfully." << endl << endl;
-                    cout << endl << "user ID: " << itr -> getId() << endl << endl; //test
                     setIdLoggedUser(itr -> getId());
                     system("pause");
-                    return itr -> getId();
+                    idLoggedUser = itr -> getId();
+                    return idLoggedUser;
                 }
             }
             cout << "You have entered 3 times wrong password." << endl;
@@ -127,5 +123,13 @@ void UserManager::changeLoggedUserPassword() {
 
 void UserManager::logoutCurrentUser() {
 
-    setIdLoggedUser(0);
+    idLoggedUser = 0;
+}
+
+bool UserManager::isUserLoggedIn() {
+
+    if(idLoggedUser > 0)
+        return true;
+    else
+        return false;
 }

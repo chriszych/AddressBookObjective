@@ -15,26 +15,22 @@ using namespace std;
 
 class PersonManager {
 
-    int idLoggedUser;
-    vector <Person> persons;
     PersonsFile personsFile;
+    const int ID_LOGGED_USER;
+    vector <Person> persons;
 
     Person enterNewPersonData();
-    string changeFirstLetterToUpperAndRestLettersToLower(string text);
     void showPersonData(Person person);
 
-
 public:
-    PersonManager(string fileName) : personsFile(fileName) {
-        idLoggedUser = 0;
+
+    PersonManager(string fileName, int idLoggedUser)
+        : personsFile(fileName), ID_LOGGED_USER(idLoggedUser) {
+        personsFile.getAllPersonsForLoggedUserFromFile(persons, ID_LOGGED_USER);
     };
+
     void addPerson();
     void showAllPersons();
-    void getAllPersonsForLoggedUserFromFile(int idLoggedUser);
-    void clearAllPersons();
-
-    void setIdLoggedUser(int newIdLoggedUser);
-    int getIdLoggedUser();
 
 };
 

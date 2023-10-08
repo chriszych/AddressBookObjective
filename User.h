@@ -12,6 +12,7 @@ class User {
     string password;
 
 public:
+
     void setId(int newId);
     void setLogin(string newLogin);
     void setPassword(string newPassword);

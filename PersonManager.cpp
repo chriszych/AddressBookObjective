@@ -8,22 +8,27 @@ void PersonManager::addPerson() {
     person = enterNewPersonData();
 
     persons.push_back(person);
-    personsFile.addPersonToFile(person);
+    if(personsFile.addPersonToFile(person)) {
+        cout << "New person added successfully." << endl;
+    } else {
+        cout << "Error. Failed to add new user to the file." << endl;
+        system("pause");
+    }
 }
 
 Person PersonManager::enterNewPersonData() {
     Person person;
 
     person.setId(personsFile.getIdLastPerson()+1);
-    person.setUserId(idLoggedUser);
+    person.setUserId(ID_LOGGED_USER);
 
     cout << "Enter FirstName: ";
     person.setFirstName(AuxiliaryMethods::readLine());
-    person.setFirstName(changeFirstLetterToUpperAndRestLettersToLower(person.getFirstName()));
+    person.setFirstName(AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(person.getFirstName()));
 
     cout << "Enter LastName: ";
     person.setLastName(AuxiliaryMethods::readLine());
-    person.setLastName(changeFirstLetterToUpperAndRestLettersToLower(person.getLastName()));
+    person.setLastName(AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(person.getLastName()));
 
     cout << "Enter Phone Number: ";
     person.setPhoneNumber(AuxiliaryMethods::readLine());
@@ -37,13 +42,7 @@ Person PersonManager::enterNewPersonData() {
     return person;
 }
 
-string PersonManager::changeFirstLetterToUpperAndRestLettersToLower(string text) {
-    if (!text.empty()) {
-        transform(text.begin(), text.end(), text.begin(), ::tolower);
-        text[0] = toupper(text[0]);
-    }
-    return text;
-}
+
 
 void PersonManager::showAllPersons() {
 
@@ -71,20 +70,3 @@ void PersonManager::showPersonData(Person person) {
     cout << "Address:          " << person.getAddress() << endl;
 }
 
-
-void PersonManager::clearAllPersons() {
-    persons.clear();
-}
-
-void PersonManager::getAllPersonsForLoggedUserFromFile(int newIdLoggedUser) {
-    idLoggedUser = newIdLoggedUser;
-    personsFile.getAllPersonsForLoggedUserFromFile(persons, newIdLoggedUser);
-}
-
-void PersonManager::setIdLoggedUser(int newIdLoggedUser) {
-    idLoggedUser = newIdLoggedUser;
-}
-
-int PersonManager::getIdLoggedUser() {
-    return idLoggedUser;
-}

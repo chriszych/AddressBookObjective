@@ -12,20 +12,20 @@ void Person::setUserId(int newUserId) {
         userId = newUserId;
     }
 }
-void Person::setFirstName(string newFirstName) {
-    firstName = newFirstName;
+void Person::setFirstName(string firstName) {
+    this -> firstName = firstName;
 }
-void Person::setLastName(string newLastName) {
-    lastName = newLastName;
+void Person::setLastName(string lastName) {
+    this -> lastName = lastName;
 }
-void Person::setPhoneNumber(string newPhoneNumber) {
-    phoneNumber = newPhoneNumber;
+void Person::setPhoneNumber(string phoneNumber) {
+    this -> phoneNumber = phoneNumber;
 }
-void Person::setEmail(string newEmail) {
-    email = newEmail;
+void Person::setEmail(string email) {
+    this -> email = email;
 }
-void Person::setAddress(string newAddress) {
-    address = newAddress;
+void Person::setAddress(string address) {
+    this -> address = address;
 }
 
 int Person::getId() {

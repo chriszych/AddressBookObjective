@@ -14,10 +14,10 @@ string PersonsFile::convertPersonDataToLineSeparatedWithVerticalLines(Person per
     return personDataLine;
 }
 
-void PersonsFile::addPersonToFile(Person person) {
+bool PersonsFile::addPersonToFile(Person person) {
     string personDataLine = "";
     fstream textFile;
-    textFile.open(personsFile.c_str(), ios::out | ios::app);
+    textFile.open(PERSONS_FILE.c_str(), ios::out | ios::app);
 
     if (textFile.good() == true) {
         personDataLine = convertPersonDataToLineSeparatedWithVerticalLines(person);
@@ -27,11 +27,12 @@ void PersonsFile::addPersonToFile(Person person) {
         } else {
             textFile << endl << personDataLine ;
         }
-    } else {
-        cout << "Failed to open " << personsFile << " and save data to it." << endl;
+
+        idLastPerson++;
+        textFile.close();
+        return true;
     }
-    textFile.close();
-    system("pause");
+    return false;
 }
 
 void PersonsFile::getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser) {
@@ -39,7 +40,7 @@ void PersonsFile::getAllPersonsForLoggedUserFromFile(vector <Person> &persons, i
     string singlePersonDataSeparatedWithVerticalLines = "";
     string lastPersonInFileData = "";
     fstream textFile;
-    textFile.open(personsFile.c_str(), ios::in);
+    textFile.open(PERSONS_FILE.c_str(), ios::in);
 
     if (textFile.good() == true) {
         while (getline(textFile, singlePersonDataSeparatedWithVerticalLines)) {
@@ -50,7 +51,7 @@ void PersonsFile::getAllPersonsForLoggedUserFromFile(vector <Person> &persons, i
         }
         lastPersonInFileData = singlePersonDataSeparatedWithVerticalLines;
     } else
-        cout << "Failed to open " << personsFile << " file and read data from it." << endl;
+        cout << "Failed to open " << PERSONS_FILE << " file and read data from it." << endl;
 
     textFile.close();
 
@@ -111,8 +112,8 @@ Person PersonsFile::getPersonData(string singlePersonDataSeparatedWithVerticalLi
     return person;
 }
 
-void PersonsFile::setIdLastPerson(int newIdLastPerson) {
-    idLastPerson = newIdLastPerson;
+void PersonsFile::setIdLastPerson(int idLastPerson) {
+    this -> idLastPerson = idLastPerson;
 }
 
 int PersonsFile::getIdLastPerson() {

@@ -4,7 +4,7 @@ void UsersFile::addUserToFile(User user) {
     string userDataLine = "";
     fstream textFile;
 
-    textFile.open(usersFile.c_str(), ios::app);
+    textFile.open(USERS_FILE.c_str(), ios::app);
 
     if (textFile.good() == true) {
         userDataLine = convertUserDataToLineSeparatedWithVerticalLines (user);
@@ -15,7 +15,7 @@ void UsersFile::addUserToFile(User user) {
             textFile << endl << userDataLine ;
         }
     } else
-        cout << "Opening file " << usersFile << " not succeed, no data write to it." << endl;
+        cout << "Opening file " << USERS_FILE << " not succeed, no data write to it." << endl;
     textFile.close();
 }
 
@@ -36,7 +36,7 @@ vector <User> UsersFile::readUsersFromFile() {
     User user;
     string singleUserDataSeparatedWithVerticalLines = "";
 
-    textFile.open(usersFile.c_str(), ios::in);
+    textFile.open(USERS_FILE.c_str(), ios::in);
 
     if (textFile.good() == true) {
         while (getline(textFile, singleUserDataSeparatedWithVerticalLines)) {
@@ -81,7 +81,7 @@ void UsersFile::saveAllUsersToFile(vector <User> &users) {
     string userDataLine = "";
     vector <User>::iterator itrEnd = --users.end();
 
-    textFile.open(usersFile.c_str(), ios::out);
+    textFile.open(USERS_FILE.c_str(), ios::out);
 
     if (textFile.good() == true) {
         for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
@@ -95,7 +95,7 @@ void UsersFile::saveAllUsersToFile(vector <User> &users) {
             userDataLine = "";
         }
     } else {
-        cout << "Failed to open " << usersFile << " file." << endl;
+        cout << "Failed to open " << USERS_FILE << " file." << endl;
     }
     textFile.close();
 }

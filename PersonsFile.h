@@ -13,7 +13,7 @@ using namespace std;
 
 class PersonsFile {
 
-    const string personsFile;
+    const string PERSONS_FILE;
     int idLastPerson;
 
     string convertPersonDataToLineSeparatedWithVerticalLines(Person person);
@@ -23,10 +23,11 @@ class PersonsFile {
 
 public:
 
-    PersonsFile(string fileName) : personsFile(fileName) {
+    PersonsFile(string fileName) : PERSONS_FILE(fileName) {
         idLastPerson = 0;
     };
-    void addPersonToFile(Person person);
+
+    bool addPersonToFile(Person person);
     void getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser);
 
     void setIdLastPerson(int newIdLastPerson);
