@@ -20,24 +20,16 @@ class PersonManager {
     PersonsFile personsFile;
 
     Person enterNewPersonData();
-    //string changeFirstLetterToUpperAndRestLettersToLower(string text);
     void showPersonData(Person person);
 
-
 public:
+
     PersonManager(string fileName, int idLoggedUser)
-        : personsFile(fileName), ID_LOGGED_USER(idLoggedUser)
-    {
-        //persons = personsFile.getAllPersonsForLoggedUserFromFile(persons, ID_LOGGED_USER);
+        : personsFile(fileName), ID_LOGGED_USER(idLoggedUser) {
         personsFile.getAllPersonsForLoggedUserFromFile(persons, ID_LOGGED_USER);
     };
     void addPerson();
     void showAllPersons();
-    //void getAllPersonsForLoggedUserFromFile(int ID_LOGGED_USER);
-    //void clearAllPersons();
-
-    //void setIdLoggedUser(int newIdLoggedUser);
-    //int getIdLoggedUser();
 
 };
 

@@ -7,11 +7,13 @@ void User::setId(int newId) {
         id = newId;
     }
 }
-void User::setLogin(string newLogin) {
-    login = newLogin;
+
+void User::setLogin(string login) {
+    this -> login = login;
 }
-void User::setPassword(string newPassword) {
-    password = newPassword;
+
+void User::setPassword(string password) {
+    this -> password = password;
 }
 
 int User::getId() {

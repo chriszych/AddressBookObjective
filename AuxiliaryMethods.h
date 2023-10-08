@@ -14,6 +14,7 @@ using namespace std;
 class AuxiliaryMethods {
 
 public:
+
     static string convertIntToString (int number);
     static int convertStringToInt(string number);
     static string readLine();
@@ -21,8 +22,6 @@ public:
     static string getNumber(string text, int charPosition);
     static string changeFirstLetterToUpperAndRestLettersToLower(string text);
     static char readChar();
-    static char selectMainMenuOption();
-    static char selectUserMenuOption();
 
 };
 

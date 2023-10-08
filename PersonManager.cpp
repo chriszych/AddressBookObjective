@@ -70,20 +70,3 @@ void PersonManager::showPersonData(Person person) {
     cout << "Address:          " << person.getAddress() << endl;
 }
 
-
-//void PersonManager::clearAllPersons() {
-//    persons.clear();
-//}
-
-//void PersonManager::getAllPersonsForLoggedUserFromFile(int newIdLoggedUser) {
-//    idLoggedUser = newIdLoggedUser;
-//    personsFile.getAllPersonsForLoggedUserFromFile(persons, newIdLoggedUser);
-//}
-//
-//void PersonManager::setIdLoggedUser(int newIdLoggedUser) {
-//    idLoggedUser = newIdLoggedUser;
-//}
-//
-//int PersonManager::getIdLoggedUser() {
-//    return idLoggedUser;
-//}

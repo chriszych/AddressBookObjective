@@ -112,8 +112,8 @@ Person PersonsFile::getPersonData(string singlePersonDataSeparatedWithVerticalLi
     return person;
 }
 
-void PersonsFile::setIdLastPerson(int newIdLastPerson) {
-    idLastPerson = newIdLastPerson;
+void PersonsFile::setIdLastPerson(int idLastPerson) {
+    this -> idLastPerson = idLastPerson;
 }
 
 int PersonsFile::getIdLastPerson() {

@@ -20,7 +20,7 @@ public:
         : userManager(userFileName), PERSONS_FILE(personFileName) {
         personManager = NULL;
     };
-    ~AddressBook(){
+    ~AddressBook() {
         delete personManager;
         personManager = NULL;
     };
@@ -31,6 +31,9 @@ public:
     void changeLoggedUserPassword();
     void logoutCurrentUser();
     bool isUserLoggedIn();
+
+    char selectMainMenuOption();
+    char selectUserMenuOption();
 
     void addPerson();
     void showAllPersons();

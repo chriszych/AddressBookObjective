@@ -23,10 +23,12 @@ class UserManager {
     bool checkIfLoginExist(string login);
 
 public:
+
     UserManager(string fileName) : usersFile(fileName) {
         idLoggedUser = 0;
         users = usersFile.readUsersFromFile();
     };
+
     void registerUser();
     void showAllUsers();
     int loginUser();

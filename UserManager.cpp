@@ -22,12 +22,12 @@ User UserManager::enterNewUserData() {
     string login, password;
     do {
         cout << "Enter login: ";
-         login = AuxiliaryMethods::readLine();
+        login = AuxiliaryMethods::readLine();
         user.setLogin(login);
     } while (checkIfLoginExist(user.getLogin()) == true);
 
     cout << "Enter password: ";
-     password = AuxiliaryMethods::readLine();
+    password = AuxiliaryMethods::readLine();
     user.setPassword(password);
 
     return user;
@@ -85,7 +85,6 @@ int UserManager::loginUser() {
 
                 if (itr -> getPassword() == password) {
                     cout << endl << "Login successfully." << endl << endl;
-                    cout << endl << "user ID: " << itr -> getId() << endl << endl; //test
                     setIdLoggedUser(itr -> getId());
                     system("pause");
                     idLoggedUser = itr -> getId();
@@ -129,8 +128,8 @@ void UserManager::logoutCurrentUser() {
 
 bool UserManager::isUserLoggedIn() {
 
-        if(idLoggedUser > 0)
-            return true;
-        else
-            return false;
+    if(idLoggedUser > 0)
+        return true;
+    else
+        return false;
 }

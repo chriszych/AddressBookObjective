@@ -20,6 +20,7 @@ class UsersFile {
 
 
 public:
+
     UsersFile(string fileName) : USERS_FILE(fileName) {};
     void addUserToFile(User user);
     vector <User> readUsersFromFile();
