@@ -52,12 +52,7 @@ void AddressBook::showAllPersons() {
 }
 
 bool AddressBook::isUserLoggedIn() {
-
-    if(userManager.isUserLoggedIn()) {
-        return true;
-    } else {
-        return false;
-    }
+return userManager.isUserLoggedIn();
 }
 
 char AddressBook::selectMainMenuOption() {

@@ -42,8 +42,6 @@ Person PersonManager::enterNewPersonData() {
     return person;
 }
 
-
-
 void PersonManager::showAllPersons() {
 
     system("cls");
