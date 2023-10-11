@@ -52,7 +52,7 @@ void AddressBook::showAllPersons() {
 }
 
 bool AddressBook::isUserLoggedIn() {
-return userManager.isUserLoggedIn();
+    return userManager.isUserLoggedIn();
 }
 
 char AddressBook::selectMainMenuOption() {
@@ -96,3 +96,7 @@ char AddressBook::selectUserMenuOption() {
     return menuSelection;
 }
 
+void AddressBook::searchPersonByFirstName() {
+
+    personManager -> searchPersonByFirstName();
+}

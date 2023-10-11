@@ -36,6 +36,7 @@ public:
     char selectUserMenuOption();
 
     void addPerson();
+    void searchPersonByFirstName();
     void showAllPersons();
 
 };

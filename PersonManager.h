@@ -21,6 +21,8 @@ class PersonManager {
 
     Person enterNewPersonData();
     void showPersonData(Person person);
+    void displayPersonData(Person person);
+    void displaySearchPersonNumber(int personsNumber);
 
 public:
 
@@ -31,6 +33,7 @@ public:
 
     void addPerson();
     void showAllPersons();
+    void searchPersonByFirstName();
 
 };
 
