@@ -78,7 +78,7 @@ void PersonManager::searchPersonByFirstName(){
     {
         cout << ">>> SEARCH PERSONS BY FIRSTNAME <<<" << endl << endl;
 
-        cout << "Search person by name: ";
+        cout << "Search person by first name: ";
         firstNameToSearch = AuxiliaryMethods::readLine();
         firstNameToSearch = AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(firstNameToSearch);
 
@@ -98,6 +98,38 @@ void PersonManager::searchPersonByFirstName(){
     }
     cout << endl;
     //system("pause");
+}
+
+void PersonManager::searchPersonByLastName()
+{
+    string lastNameToSearch = "";
+    int personsNumber = 0;
+
+    system("cls");
+    if (!persons.empty())
+    {
+        cout << ">>> SEARCH PERSONS BY LASTNAME <<<" << endl << endl;
+
+        cout << "Search person by last name: ";
+        lastNameToSearch = AuxiliaryMethods::readLine();
+        lastNameToSearch = AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(lastNameToSearch);
+
+        for (vector <Person>::iterator  itr = persons.begin(); itr != persons.end(); itr++)
+        {
+            if (itr -> getLastName() == lastNameToSearch)
+            {
+                displayPersonData(*itr);
+                personsNumber++;
+            }
+        }
+        displaySearchPersonNumber(personsNumber);
+    }
+    else
+    {
+        cout << endl << "Your AddressBook is empty!" << endl << endl;
+    }
+    cout << endl;
+   // system("pause");
 }
 
 void PersonManager::displayPersonData(Person person){

@@ -43,7 +43,8 @@ int main() {
                 system("pause");
                 break;
             case '3':
-                cout << "Position No 3. Find Person by SureName - TBD" << endl;
+                addressBook.searchPersonByLastName();
+                //cout << "Position No 3. Find Person by SureName - TBD" << endl;
                 system("pause");
                 break;
             case '4':

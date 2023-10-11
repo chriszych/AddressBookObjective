@@ -100,3 +100,8 @@ void AddressBook::searchPersonByFirstName() {
 
     personManager -> searchPersonByFirstName();
 }
+
+void AddressBook::searchPersonByLastName() {
+
+    personManager -> searchPersonByLastName();
+}

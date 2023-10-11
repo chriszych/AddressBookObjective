@@ -34,6 +34,7 @@ public:
     void addPerson();
     void showAllPersons();
     void searchPersonByFirstName();
+    void searchPersonByLastName();
 
 };
 
