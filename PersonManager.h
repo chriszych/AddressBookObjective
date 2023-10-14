@@ -18,11 +18,16 @@ class PersonManager {
     PersonsFile personsFile;
     const int ID_LOGGED_USER;
     vector <Person> persons;
+    int idPersonToDelete;
 
     Person enterNewPersonData();
     void showPersonData(Person person);
     void displayPersonData(Person person);
     void displaySearchPersonNumber(int personsNumber);
+    //int getLastPersonIdAfterDeletedSelectedPerson(int deletedPersonId, int lastPersonId);
+    int enterIdOfSelectedPerson();
+
+
 
 public:
 
@@ -35,6 +40,12 @@ public:
     void showAllPersons();
     void searchPersonByFirstName();
     void searchPersonByLastName();
+    void deletePerson();
+    void getLastPersonIdAfterDeletedSelectedPerson();
+
+    int getIdPersonToDelete();
+    void setIdPersonToDelete(int idPersonToDelete);
+
 
 };
 

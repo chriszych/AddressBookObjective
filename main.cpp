@@ -51,8 +51,9 @@ int main() {
                 addressBook.showAllPersons();
                 break;
             case '5':
-                cout << "Position No 5. Delete Person - TBD" << endl;
-                system("pause");
+                addressBook.deletePerson();
+                //cout << "Position No 5. Delete Person - TBD" << endl;
+                //system("pause");
                 break;
             case '6':
                 cout << "Position No 6. Edit Person - TBD" << endl;

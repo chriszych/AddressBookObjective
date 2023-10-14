@@ -105,3 +105,10 @@ void AddressBook::searchPersonByLastName() {
 
     personManager -> searchPersonByLastName();
 }
+
+void AddressBook::deletePerson() {
+
+    personManager -> deletePerson();
+    personManager -> getLastPersonIdAfterDeletedSelectedPerson();
+    //idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
+}

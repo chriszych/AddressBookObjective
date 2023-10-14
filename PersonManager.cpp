@@ -147,3 +147,69 @@ void PersonManager::displaySearchPersonNumber(int personsNumber){
     else
         cout << endl << "Number of persons in your AddressBook: " << personsNumber << endl << endl;
 }
+
+void PersonManager::deletePerson()
+{
+    //int idPersonToDelete = 0;
+    int personToDeleteNumberOfLine = 0;
+
+    system("cls");
+    cout << ">>> DELETE SELECTED PERSON <<<" << endl << endl;
+    setIdPersonToDelete(enterIdOfSelectedPerson());
+
+    char replyChar;
+    bool ifPersonExist = false;
+
+    for (vector <Person>::iterator itr = persons.begin(); itr != persons.end(); itr++)
+    {
+        if (itr -> getId() == getIdPersonToDelete())
+        {
+            ifPersonExist = true;
+            cout << endl << "Confirm by pressing the key 'y': ";
+            replyChar = AuxiliaryMethods::readChar();
+            if (replyChar == 'y')
+            {
+                personToDeleteNumberOfLine = personsFile.returnSelectedPersonLineNumber(getIdPersonToDelete());
+                personsFile.deleteSelectedLineInFile(personToDeleteNumberOfLine);
+
+                persons.erase(itr);
+                cout << endl << endl << "Selected person had been DELETED." << endl << endl;
+                system("pause");
+                break;
+                //return idPersonToDelete;
+            }
+            else
+            {
+                cout << endl << endl << "Selected person had NOT been deleted." << endl << endl;
+                system("pause");
+                //return 0;
+            }
+        }
+    }
+    if (ifPersonExist == false)
+    {
+        cout << endl << "No such person in your AddressBook" << endl << endl;
+        system("pause");
+    }
+    //return 0;
+}
+
+int PersonManager::enterIdOfSelectedPerson()
+{
+    int IdSelectedPerson = 0;
+    cout << "Enter selected person ID: ";
+    IdSelectedPerson = AuxiliaryMethods::readInteger();
+    return IdSelectedPerson ;
+}
+
+int PersonManager::getIdPersonToDelete(){
+    return idPersonToDelete;
+}
+
+void PersonManager::setIdPersonToDelete(int idPersonToDelete){
+    this -> idPersonToDelete = idPersonToDelete;
+}
+
+void PersonManager::getLastPersonIdAfterDeletedSelectedPerson(){
+    personsFile.getLastPersonIdAfterDeletedSelectedPerson(idPersonToDelete);
+}

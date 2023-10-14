@@ -22,6 +22,7 @@ public:
     static string getNumber(string text, int charPosition);
     static string changeFirstLetterToUpperAndRestLettersToLower(string text);
     static char readChar();
+    static int readInteger();
 
 };
 

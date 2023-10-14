@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>410</x>
+      <x>490</x>
       <y>0</y>
       <w>430</w>
       <h>270</h>
@@ -105,8 +105,8 @@ UsersFile(string);
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>860</x>
-      <y>320</y>
+      <x>20</x>
+      <y>40</y>
       <w>440</w>
       <h>180</h>
     </coordinates>

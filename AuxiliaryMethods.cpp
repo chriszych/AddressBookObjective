@@ -62,3 +62,20 @@ char AuxiliaryMethods::readChar() {
     }
     return lineChar;
 }
+
+int AuxiliaryMethods::readInteger()
+{
+    string inputLine = "";
+    int inputNumber = 0;
+
+    while (true)
+    {
+        getline(cin, inputLine);
+
+        stringstream myStream(inputLine);
+        if (myStream >> inputNumber)
+            break;
+        cout << "This is not an integer number. Enter again. " << endl;
+    }
+    return inputNumber;
+}
