@@ -68,3 +68,82 @@ void PersonManager::showPersonData(Person person) {
     cout << "Address:          " << person.getAddress() << endl;
 }
 
+void PersonManager::searchPersonByFirstName(){
+
+    string firstNameToSearch = "";
+    int personsNumber = 0;
+
+    system("cls");
+    if (!persons.empty())
+    {
+        cout << ">>> SEARCH PERSONS BY FIRSTNAME <<<" << endl << endl;
+
+        cout << "Search person by first name: ";
+        firstNameToSearch = AuxiliaryMethods::readLine();
+        firstNameToSearch = AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(firstNameToSearch);
+
+        for (vector <Person>::iterator  itr = persons.begin(); itr != persons.end(); itr++)
+        {
+            if (itr -> getFirstName() == firstNameToSearch)
+            {
+                displayPersonData(*itr);
+                personsNumber++;
+            }
+        }
+        displaySearchPersonNumber(personsNumber);
+    }
+    else
+    {
+        cout << endl << "Your AddressBook is empty!" << endl << endl;
+    }
+    cout << endl;
+    //system("pause");
+}
+
+void PersonManager::searchPersonByLastName()
+{
+    string lastNameToSearch = "";
+    int personsNumber = 0;
+
+    system("cls");
+    if (!persons.empty())
+    {
+        cout << ">>> SEARCH PERSONS BY LASTNAME <<<" << endl << endl;
+
+        cout << "Search person by last name: ";
+        lastNameToSearch = AuxiliaryMethods::readLine();
+        lastNameToSearch = AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(lastNameToSearch);
+
+        for (vector <Person>::iterator  itr = persons.begin(); itr != persons.end(); itr++)
+        {
+            if (itr -> getLastName() == lastNameToSearch)
+            {
+                displayPersonData(*itr);
+                personsNumber++;
+            }
+        }
+        displaySearchPersonNumber(personsNumber);
+    }
+    else
+    {
+        cout << endl << "Your AddressBook is empty!" << endl << endl;
+    }
+    cout << endl;
+   // system("pause");
+}
+
+void PersonManager::displayPersonData(Person person){
+    cout << endl << "Id:         " << person.getId() << endl;
+    cout << "Firstname:          " << person.getFirstName() << endl;
+    cout << "Lastname:           " << person.getLastName() << endl;
+    cout << "Phone :             " << person.getPhoneNumber() << endl;
+    cout << "Email:              " << person.getEmail() << endl;
+    cout << "Address:            " << person.getAddress() << endl;
+}
+
+void PersonManager::displaySearchPersonNumber(int personsNumber){
+    if (personsNumber == 0)
+        cout << endl << "No such persons in your AddressBook." << endl;
+    else
+        cout << endl << "Number of persons in your AddressBook: " << personsNumber << endl << endl;
+}

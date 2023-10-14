@@ -38,11 +38,13 @@ int main() {
                 addressBook.addPerson();
                 break;
             case '2':
-                cout << "Position No 2. Find Person by FirstName - TBD" << endl;
+                //cout << "Position No 2. Find Person by FirstName - TBD" << endl;
+                addressBook.searchPersonByFirstName();
                 system("pause");
                 break;
             case '3':
-                cout << "Position No 3. Find Person by SureName - TBD" << endl;
+                addressBook.searchPersonByLastName();
+                //cout << "Position No 3. Find Person by SureName - TBD" << endl;
                 system("pause");
                 break;
             case '4':
