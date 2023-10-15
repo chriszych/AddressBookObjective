@@ -110,7 +110,6 @@ void AddressBook::deletePerson() {
 
     personManager -> deletePerson();
     personManager -> getLastPersonIdAfterDeletedSelectedPerson();
-    //idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
 }
 
 void AddressBook::modifyPerson() {

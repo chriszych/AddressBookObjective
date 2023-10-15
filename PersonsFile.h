@@ -25,7 +25,6 @@ class PersonsFile {
     void changeFileName(string oldFileName, string newFileName);
     int getLastPersonIdFromFile();
 
-
 public:
 
     PersonsFile(string fileName) : PERSONS_FILE(fileName) {

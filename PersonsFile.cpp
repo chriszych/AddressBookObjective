@@ -120,29 +120,23 @@ int PersonsFile::getIdLastPerson() {
     return idLastPerson;
 }
 
-int PersonsFile::returnSelectedPersonLineNumber(int personId)
-{
+int PersonsFile::returnSelectedPersonLineNumber(int personId) {
     bool ifPersonExist = false;
     int textFileLineNumber = 1;
     string singlePersonDataSeparatedWithVerticalLines = "";
     fstream textFile;
     textFile.open(PERSONS_FILE.c_str(), ios::in);
 
-    if (textFile.good() == true && personId != 0)
-    {
-        while(getline(textFile, singlePersonDataSeparatedWithVerticalLines))
-        {
-            if(personId == getPersonIdFromDataSeparatedWithVerticalLines(singlePersonDataSeparatedWithVerticalLines))
-            {
+    if (textFile.good() == true && personId != 0) {
+        while(getline(textFile, singlePersonDataSeparatedWithVerticalLines)) {
+            if(personId == getPersonIdFromDataSeparatedWithVerticalLines(singlePersonDataSeparatedWithVerticalLines)) {
                 ifPersonExist = true;
                 textFile.close();
                 return textFileLineNumber;
-            }
-            else
+            } else
                 textFileLineNumber++;
         }
-        if (ifPersonExist == false)
-        {
+        if (ifPersonExist == false) {
             textFile.close();
             return 0;
         }
@@ -150,8 +144,7 @@ int PersonsFile::returnSelectedPersonLineNumber(int personId)
     return 0;
 }
 
-void PersonsFile::deleteSelectedLineInFile(int deletedLineNumber)
-{
+void PersonsFile::deleteSelectedLineInFile(int deletedLineNumber) {
     fstream readTextFile, tmpTextFile;
     string readLine = "";
     int readLineNumber = 1;
@@ -159,10 +152,8 @@ void PersonsFile::deleteSelectedLineInFile(int deletedLineNumber)
     readTextFile.open(PERSONS_FILE.c_str(), ios::in);
     tmpTextFile.open(TEMP_PERSONS_FILE.c_str(), ios::out | ios::app);
 
-    if (readTextFile.good() == true && deletedLineNumber != 0)
-    {
-        while (getline(readTextFile, readLine))
-        {
+    if (readTextFile.good() == true && deletedLineNumber != 0) {
+        while (getline(readTextFile, readLine)) {
             if (readLineNumber == deletedLineNumber) {}
             else if (readLineNumber == 1 && readLineNumber != deletedLineNumber)
                 tmpTextFile << readLine;
@@ -182,56 +173,43 @@ void PersonsFile::deleteSelectedLineInFile(int deletedLineNumber)
     }
 }
 
-void PersonsFile::deleteFile(string fileName)
-{
+void PersonsFile::deleteFile(string fileName) {
     if (remove(fileName.c_str()) == 0) {}
     else
         cout << "Failed to delete the file " << fileName << endl;
 }
 
-void PersonsFile::changeFileName(string oldFileName, string newFileName)
-{
+void PersonsFile::changeFileName(string oldFileName, string newFileName) {
     if (rename(oldFileName.c_str(), newFileName.c_str()) == 0) {}
     else
         cout << "File name was not changed." << oldFileName << endl;
 }
 
-
-int PersonsFile::getLastPersonIdFromFile()
-{
+int PersonsFile::getLastPersonIdFromFile() {
     int lastPersonId = 0;
     string singlePersonDataSeparatedWithVerticalLines = "";
     string lastPersonInFileData = "";
     fstream textFile;
     textFile.open(PERSONS_FILE.c_str(), ios::in);
 
-    if (textFile.good() == true)
-    {
+    if (textFile.good() == true) {
         while (getline(textFile, singlePersonDataSeparatedWithVerticalLines)) {}
-            lastPersonInFileData = singlePersonDataSeparatedWithVerticalLines;
-            textFile.close();
-    }
-    else
+        lastPersonInFileData = singlePersonDataSeparatedWithVerticalLines;
+        textFile.close();
+    } else
         cout << "Failed to open the file and read the data." << endl;
 
-    if (lastPersonInFileData != "")
-    {
+    if (lastPersonInFileData != "") {
         lastPersonId = getPersonIdFromDataSeparatedWithVerticalLines(lastPersonInFileData);
     }
     return lastPersonId;
 }
-void PersonsFile::getLastPersonIdAfterDeletedSelectedPerson(int deletedPersonId)
-{
+void PersonsFile::getLastPersonIdAfterDeletedSelectedPerson(int deletedPersonId) {
     if (deletedPersonId == idLastPerson)
         setIdLastPerson(getLastPersonIdFromFile());
-        //return pobierzZPlikuIdOstatniegoAdresata();
-//        return getLastPersonIdFromFile();
-//    else
-//        return idLastPerson;
 }
 
-void PersonsFile::modifySelectedFileLine(int editedPersonNumberOfLine, string personDataLine)
-{
+void PersonsFile::modifySelectedFileLine(int editedPersonNumberOfLine, string personDataLine) {
     fstream readTextFile, tempTextFile;
     string readLine = "";
     int readLineNumber = 1;
@@ -239,19 +217,14 @@ void PersonsFile::modifySelectedFileLine(int editedPersonNumberOfLine, string pe
     readTextFile.open(PERSONS_FILE.c_str(), ios::in);
     tempTextFile.open(TEMP_PERSONS_FILE.c_str(), ios::out | ios::app);
 
-    if (readTextFile.good() == true)
-    {
-        while (getline(readTextFile, readLine))
-        {
-            if (readLineNumber == editedPersonNumberOfLine)
-            {
+    if (readTextFile.good() == true) {
+        while (getline(readTextFile, readLine)) {
+            if (readLineNumber == editedPersonNumberOfLine) {
                 if (readLineNumber == 1)
                     tempTextFile << personDataLine;
                 else if (readLineNumber > 1)
                     tempTextFile << endl << personDataLine;
-            }
-            else
-            {
+            } else {
                 if (readLineNumber == 1)
                     tempTextFile << readLine;
                 else if (readLineNumber > 1)

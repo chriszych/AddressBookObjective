@@ -24,12 +24,9 @@ class PersonManager {
     void showPersonData(Person person);
     void displayPersonData(Person person);
     void displaySearchPersonNumber(int personsNumber);
-    //int getLastPersonIdAfterDeletedSelectedPerson(int deletedPersonId, int lastPersonId);
     int enterIdOfSelectedPerson();
     char selectMenuEditOption();
     void modifySelectedPersonData(Person person, int idEditPerson);
-
-
 
 public:
 

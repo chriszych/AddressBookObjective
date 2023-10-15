@@ -38,27 +38,19 @@ int main() {
                 addressBook.addPerson();
                 break;
             case '2':
-                //cout << "Position No 2. Find Person by FirstName - TBD" << endl;
                 addressBook.searchPersonByFirstName();
-                system("pause");
                 break;
             case '3':
                 addressBook.searchPersonByLastName();
-                //cout << "Position No 3. Find Person by SureName - TBD" << endl;
-                system("pause");
                 break;
             case '4':
                 addressBook.showAllPersons();
                 break;
             case '5':
                 addressBook.deletePerson();
-                //cout << "Position No 5. Delete Person - TBD" << endl;
-                //system("pause");
                 break;
             case '6':
                 addressBook.modifyPerson();
-                //cout << "Position No 6. Edit Person - TBD" << endl;
-                //system("pause");
                 break;
             case '7':
                 addressBook.changeLoggedUserPassword();

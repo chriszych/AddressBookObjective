@@ -68,71 +68,60 @@ void PersonManager::showPersonData(Person person) {
     cout << "Address:          " << person.getAddress() << endl;
 }
 
-void PersonManager::searchPersonByFirstName(){
+void PersonManager::searchPersonByFirstName() {
 
     string firstNameToSearch = "";
     int personsNumber = 0;
 
     system("cls");
-    if (!persons.empty())
-    {
+    if (!persons.empty()) {
         cout << ">>> SEARCH PERSONS BY FIRSTNAME <<<" << endl << endl;
 
         cout << "Search person by first name: ";
         firstNameToSearch = AuxiliaryMethods::readLine();
         firstNameToSearch = AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(firstNameToSearch);
 
-        for (vector <Person>::iterator  itr = persons.begin(); itr != persons.end(); itr++)
-        {
-            if (itr -> getFirstName() == firstNameToSearch)
-            {
+        for (vector <Person>::iterator  itr = persons.begin(); itr != persons.end(); itr++) {
+            if (itr -> getFirstName() == firstNameToSearch) {
                 displayPersonData(*itr);
                 personsNumber++;
             }
         }
         displaySearchPersonNumber(personsNumber);
-    }
-    else
-    {
+    } else {
         cout << endl << "Your AddressBook is empty!" << endl << endl;
     }
     cout << endl;
-    //system("pause");
+    system("pause");
 }
 
-void PersonManager::searchPersonByLastName()
-{
+void PersonManager::searchPersonByLastName() {
     string lastNameToSearch = "";
     int personsNumber = 0;
 
     system("cls");
-    if (!persons.empty())
-    {
+    if (!persons.empty()) {
         cout << ">>> SEARCH PERSONS BY LASTNAME <<<" << endl << endl;
 
         cout << "Search person by last name: ";
         lastNameToSearch = AuxiliaryMethods::readLine();
         lastNameToSearch = AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(lastNameToSearch);
 
-        for (vector <Person>::iterator  itr = persons.begin(); itr != persons.end(); itr++)
-        {
-            if (itr -> getLastName() == lastNameToSearch)
-            {
+        for (vector <Person>::iterator  itr = persons.begin(); itr != persons.end(); itr++) {
+            if (itr -> getLastName() == lastNameToSearch) {
                 displayPersonData(*itr);
                 personsNumber++;
             }
         }
         displaySearchPersonNumber(personsNumber);
-    }
-    else
-    {
+    } else {
         cout << endl << "Your AddressBook is empty!" << endl << endl;
     }
     cout << endl;
-   // system("pause");
+    system("pause");
 }
 
-void PersonManager::displayPersonData(Person person){
+void PersonManager::displayPersonData(Person person) {
     cout << endl << "Id:         " << person.getId() << endl;
     cout << "Firstname:          " << person.getFirstName() << endl;
     cout << "Lastname:           " << person.getLastName() << endl;
@@ -141,16 +130,14 @@ void PersonManager::displayPersonData(Person person){
     cout << "Address:            " << person.getAddress() << endl;
 }
 
-void PersonManager::displaySearchPersonNumber(int personsNumber){
+void PersonManager::displaySearchPersonNumber(int personsNumber) {
     if (personsNumber == 0)
         cout << endl << "No such persons in your AddressBook." << endl;
     else
         cout << endl << "Number of persons in your AddressBook: " << personsNumber << endl << endl;
 }
 
-void PersonManager::deletePerson()
-{
-    //int idPersonToDelete = 0;
+void PersonManager::deletePerson() {
     int personToDeleteNumberOfLine = 0;
 
     system("cls");
@@ -160,15 +147,12 @@ void PersonManager::deletePerson()
     char replyChar;
     bool ifPersonExist = false;
 
-    for (vector <Person>::iterator itr = persons.begin(); itr != persons.end(); itr++)
-    {
-        if (itr -> getId() == getIdPersonToDelete())
-        {
+    for (vector <Person>::iterator itr = persons.begin(); itr != persons.end(); itr++) {
+        if (itr -> getId() == getIdPersonToDelete()) {
             ifPersonExist = true;
             cout << endl << "Confirm by pressing the key 'y': ";
             replyChar = AuxiliaryMethods::readChar();
-            if (replyChar == 'y')
-            {
+            if (replyChar == 'y') {
                 personToDeleteNumberOfLine = personsFile.returnSelectedPersonLineNumber(getIdPersonToDelete());
                 personsFile.deleteSelectedLineInFile(personToDeleteNumberOfLine);
 
@@ -176,50 +160,42 @@ void PersonManager::deletePerson()
                 cout << endl << endl << "Selected person had been DELETED." << endl << endl;
                 system("pause");
                 break;
-                //return idPersonToDelete;
-            }
-            else
-            {
+            } else {
                 cout << endl << endl << "Selected person had NOT been deleted." << endl << endl;
                 system("pause");
-                //return 0;
             }
         }
     }
-    if (ifPersonExist == false)
-    {
+    if (ifPersonExist == false) {
         cout << endl << "No such person in your AddressBook" << endl << endl;
         system("pause");
     }
-    //return 0;
 }
 
-int PersonManager::enterIdOfSelectedPerson()
-{
+int PersonManager::enterIdOfSelectedPerson() {
     int IdSelectedPerson = 0;
     cout << "Enter selected person ID: ";
     IdSelectedPerson = AuxiliaryMethods::readInteger();
     return IdSelectedPerson ;
 }
 
-int PersonManager::getIdPersonToDelete(){
+int PersonManager::getIdPersonToDelete() {
     return idPersonToDelete;
 }
 
-void PersonManager::setIdPersonToDelete(int idPersonToDelete){
+void PersonManager::setIdPersonToDelete(int idPersonToDelete) {
     this -> idPersonToDelete = idPersonToDelete;
 }
 
-void PersonManager::getLastPersonIdAfterDeletedSelectedPerson(){
+void PersonManager::getLastPersonIdAfterDeletedSelectedPerson() {
     personsFile.getLastPersonIdAfterDeletedSelectedPerson(idPersonToDelete);
 }
 
-void PersonManager::modifyPerson(){
+void PersonManager::modifyPerson() {
 
     system("cls");
     Person person;
     int idEditPerson = 0;
-    //int editPersonNumberOfLine = 0;
     string personDataLine = "";
 
     cout << ">>> MODIFY SELECTED PERSON <<<" << endl << endl;
@@ -228,15 +204,12 @@ void PersonManager::modifyPerson(){
     char replyChar;
     bool ifPersonExist = false;
 
-    for (size_t i = 0; i < persons.size(); i++)
-    {
-        if (persons[i].getId() == idEditPerson)
-        {
+    for (size_t i = 0; i < persons.size(); i++) {
+        if (persons[i].getId() == idEditPerson) {
             ifPersonExist = true;
             replyChar = selectMenuEditOption();
 
-            switch (replyChar)
-            {
+            switch (replyChar) {
             case '1':
                 cout << "Enter new first name: ";
                 persons[i].setFirstName(AuxiliaryMethods::readLine());
@@ -273,15 +246,13 @@ void PersonManager::modifyPerson(){
             }
         }
     }
-    if (ifPersonExist == false)
-    {
+    if (ifPersonExist == false) {
         cout << endl << "Not found such person." << endl << endl;
     }
     system("pause");
 }
 
-char PersonManager::selectMenuEditOption()
-{
+char PersonManager::selectMenuEditOption() {
     char selectChar;
 
     cout << endl << "   >>> EDIT MENU <<<   " << endl;
@@ -299,14 +270,12 @@ char PersonManager::selectMenuEditOption()
     return selectChar;
 }
 
-void PersonManager::modifySelectedPersonData(Person person, int idEditPerson)
-{
+void PersonManager::modifySelectedPersonData(Person person, int idEditPerson) {
     int editedPersonNumberOfLine = 0;
     string personDataLine = "";
 
     editedPersonNumberOfLine = personsFile.returnSelectedPersonLineNumber(idEditPerson);
     personDataLine = personsFile.convertPersonDataToLineSeparatedWithVerticalLines(person);
-    //edytujWybranaLinieWPliku(editedPersonNumberOfLine, personDataLine);
     personsFile.modifySelectedFileLine(editedPersonNumberOfLine, personDataLine);
 
     cout << endl << "Data have been successfully modified." << endl << endl;

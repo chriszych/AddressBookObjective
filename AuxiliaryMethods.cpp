@@ -63,13 +63,11 @@ char AuxiliaryMethods::readChar() {
     return lineChar;
 }
 
-int AuxiliaryMethods::readInteger()
-{
+int AuxiliaryMethods::readInteger() {
     string inputLine = "";
     int inputNumber = 0;
 
-    while (true)
-    {
+    while (true) {
         getline(cin, inputLine);
 
         stringstream myStream(inputLine);
