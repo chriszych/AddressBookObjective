@@ -40,6 +40,7 @@ public:
     void searchPersonByLastName();
     void showAllPersons();
     void deletePerson();
+    void modifyPerson();
 
 };
 

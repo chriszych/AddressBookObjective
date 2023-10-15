@@ -56,8 +56,9 @@ int main() {
                 //system("pause");
                 break;
             case '6':
-                cout << "Position No 6. Edit Person - TBD" << endl;
-                system("pause");
+                addressBook.modifyPerson();
+                //cout << "Position No 6. Edit Person - TBD" << endl;
+                //system("pause");
                 break;
             case '7':
                 addressBook.changeLoggedUserPassword();

@@ -17,7 +17,7 @@ class PersonsFile {
     const string TEMP_PERSONS_FILE = "tmpPersons.txt";
     int idLastPerson;
 
-    string convertPersonDataToLineSeparatedWithVerticalLines(Person person);
+
     int getPersonIdFromDataSeparatedWithVerticalLines(string singlePersonDataSeparatedWithVerticalLines);
     int getUserIdFromDataSeparatedWithVerticalLines(string singlePersonDataSeparatedWithVerticalLines);
     Person getPersonData(string singlePersonDataSeparatedWithVerticalLines);
@@ -37,6 +37,8 @@ public:
     int returnSelectedPersonLineNumber(int personId);
     void deleteSelectedLineInFile(int deletedLineNumber);
     void getLastPersonIdAfterDeletedSelectedPerson(int deletedPersonId);
+    void modifySelectedFileLine(int editedPersonNumberOfLine, string personDataLine);
+    string convertPersonDataToLineSeparatedWithVerticalLines(Person person);
 
     void setIdLastPerson(int newIdLastPerson);
     int getIdLastPerson();

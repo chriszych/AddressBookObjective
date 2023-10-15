@@ -213,3 +213,101 @@ void PersonManager::setIdPersonToDelete(int idPersonToDelete){
 void PersonManager::getLastPersonIdAfterDeletedSelectedPerson(){
     personsFile.getLastPersonIdAfterDeletedSelectedPerson(idPersonToDelete);
 }
+
+void PersonManager::modifyPerson(){
+
+    system("cls");
+    Person person;
+    int idEditPerson = 0;
+    //int editPersonNumberOfLine = 0;
+    string personDataLine = "";
+
+    cout << ">>> MODIFY SELECTED PERSON <<<" << endl << endl;
+    idEditPerson = enterIdOfSelectedPerson();
+
+    char replyChar;
+    bool ifPersonExist = false;
+
+    for (size_t i = 0; i < persons.size(); i++)
+    {
+        if (persons[i].getId() == idEditPerson)
+        {
+            ifPersonExist = true;
+            replyChar = selectMenuEditOption();
+
+            switch (replyChar)
+            {
+            case '1':
+                cout << "Enter new first name: ";
+                persons[i].setFirstName(AuxiliaryMethods::readLine());
+                persons[i].setFirstName(AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(persons[i].getFirstName()));
+                modifySelectedPersonData(persons[i], idEditPerson);
+                break;
+            case '2':
+                cout << "Enter new last name: ";
+                persons[i].setLastName(AuxiliaryMethods::readLine());
+                persons[i].setLastName(AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(persons[i].getLastName()));
+                modifySelectedPersonData(persons[i], idEditPerson);
+                break;
+            case '3':
+                cout << "Enter new phone number: ";
+                persons[i].setPhoneNumber(AuxiliaryMethods::readLine());
+                modifySelectedPersonData(persons[i], idEditPerson);
+                break;
+            case '4':
+                cout << "Enter new email: ";
+                persons[i].setEmail(AuxiliaryMethods::readLine());
+                modifySelectedPersonData(persons[i], idEditPerson);
+                break;
+            case '5':
+                cout << "Enter new address: ";
+                persons[i].setAddress(AuxiliaryMethods::readLine());
+                modifySelectedPersonData(persons[i], idEditPerson);
+                break;
+            case '6':
+                cout << endl << "Return to User Menu" << endl << endl;
+                break;
+            default:
+                cout << endl << "No such Menu option! Return to User Menu." << endl << endl;
+                break;
+            }
+        }
+    }
+    if (ifPersonExist == false)
+    {
+        cout << endl << "Not found such person." << endl << endl;
+    }
+    system("pause");
+}
+
+char PersonManager::selectMenuEditOption()
+{
+    char selectChar;
+
+    cout << endl << "   >>> EDIT MENU <<<   " << endl;
+    cout << "---------------------------" << endl;
+    cout << "Which data do you want to modify: " << endl;
+    cout << "1 - First name" << endl;
+    cout << "2 - Last name" << endl;
+    cout << "3 - Phone Number" << endl;
+    cout << "4 - Email" << endl;
+    cout << "5 - Address" << endl;
+    cout << "6 - Exit " << endl;
+    cout << endl << "Your selection: ";
+    selectChar = AuxiliaryMethods::readChar();
+
+    return selectChar;
+}
+
+void PersonManager::modifySelectedPersonData(Person person, int idEditPerson)
+{
+    int editedPersonNumberOfLine = 0;
+    string personDataLine = "";
+
+    editedPersonNumberOfLine = personsFile.returnSelectedPersonLineNumber(idEditPerson);
+    personDataLine = personsFile.convertPersonDataToLineSeparatedWithVerticalLines(person);
+    //edytujWybranaLinieWPliku(editedPersonNumberOfLine, personDataLine);
+    personsFile.modifySelectedFileLine(editedPersonNumberOfLine, personDataLine);
+
+    cout << endl << "Data have been successfully modified." << endl << endl;
+}

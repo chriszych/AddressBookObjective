@@ -229,3 +229,40 @@ void PersonsFile::getLastPersonIdAfterDeletedSelectedPerson(int deletedPersonId)
 //    else
 //        return idLastPerson;
 }
+
+void PersonsFile::modifySelectedFileLine(int editedPersonNumberOfLine, string personDataLine)
+{
+    fstream readTextFile, tempTextFile;
+    string readLine = "";
+    int readLineNumber = 1;
+
+    readTextFile.open(PERSONS_FILE.c_str(), ios::in);
+    tempTextFile.open(TEMP_PERSONS_FILE.c_str(), ios::out | ios::app);
+
+    if (readTextFile.good() == true)
+    {
+        while (getline(readTextFile, readLine))
+        {
+            if (readLineNumber == editedPersonNumberOfLine)
+            {
+                if (readLineNumber == 1)
+                    tempTextFile << personDataLine;
+                else if (readLineNumber > 1)
+                    tempTextFile << endl << personDataLine;
+            }
+            else
+            {
+                if (readLineNumber == 1)
+                    tempTextFile << readLine;
+                else if (readLineNumber > 1)
+                    tempTextFile << endl << readLine;
+            }
+            readLineNumber++;
+        }
+        readTextFile.close();
+        tempTextFile.close();
+
+        deleteFile(PERSONS_FILE);
+        changeFileName(TEMP_PERSONS_FILE, PERSONS_FILE);
+    }
+}
