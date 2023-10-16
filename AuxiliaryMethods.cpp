@@ -13,15 +13,6 @@ string AuxiliaryMethods::readLine() {
     return lineInput;
 }
 
-bool AuxiliaryMethods::isFileEmpty(fstream &textFile) {
-
-    textFile.seekg(0, ios::end);
-    if (textFile.tellg() == 0)
-        return true;
-    else
-        return false;
-}
-
 int AuxiliaryMethods::convertStringToInt(string number) {
     int intNumber;
     istringstream iss(number);
