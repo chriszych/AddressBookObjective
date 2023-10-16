@@ -6,14 +6,14 @@
 #include <fstream>
 #include <cstdlib>
 
+#include "TextFile.h"
 #include "Person.h"
 #include "AuxiliaryMethods.h"
 
 using namespace std;
 
-class PersonsFile {
+class PersonsFile : public TextFile {
 
-    const string PERSONS_FILE;
     const string TEMP_PERSONS_FILE = "tmpPersons.txt";
     int idLastPerson;
 
@@ -29,7 +29,7 @@ class PersonsFile {
 
 public:
 
-    PersonsFile(string fileName) : PERSONS_FILE(fileName) {
+    PersonsFile(string fileName) : TextFile(fileName) {
         idLastPerson = 0;
     };
 
@@ -38,7 +38,6 @@ public:
     void deleteSelectedPersonInFile(int personId);
     void getLastPersonIdAfterDeletedSelectedPerson(int deletedPersonId);
     void modifySelectedPersonInFile(Person person);
-
 
     void setIdLastPerson(int newIdLastPerson);
     int getIdLastPerson();
