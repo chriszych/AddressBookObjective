@@ -24,6 +24,8 @@ class PersonsFile {
     void deleteFile(string fileName);
     void changeFileName(string oldFileName, string newFileName);
     int getLastPersonIdFromFile();
+    int getOneBeforeLastPersonIdFromFile();
+    string convertPersonDataToLineSeparatedWithVerticalLines(Person person);
 
 public:
 
@@ -33,11 +35,10 @@ public:
 
     bool addPersonToFile(Person person);
     void getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser);
-    int returnSelectedPersonLineNumber(int personId);
-    void deleteSelectedLineInFile(int deletedLineNumber);
+    void deleteSelectedPersonInFile(int personId);
     void getLastPersonIdAfterDeletedSelectedPerson(int deletedPersonId);
-    void modifySelectedFileLine(int editedPersonNumberOfLine, string personDataLine);
-    string convertPersonDataToLineSeparatedWithVerticalLines(Person person);
+    void modifySelectedPersonInFile(Person person);
+
 
     void setIdLastPerson(int newIdLastPerson);
     int getIdLastPerson();

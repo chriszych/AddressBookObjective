@@ -26,7 +26,7 @@ class PersonManager {
     void displaySearchPersonNumber(int personsNumber);
     int enterIdOfSelectedPerson();
     char selectMenuEditOption();
-    void modifySelectedPersonData(Person person, int idEditPerson);
+    void modifySelectedPersonData(Person person);
 
 public:
 
