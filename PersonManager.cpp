@@ -139,25 +139,21 @@ void PersonManager::displaySearchPersonNumber(int personsNumber) {
 
 void PersonManager::deletePerson() {
 
-    //test
     int idPersonToDelete = 0;
 
     system("cls");
     cout << ">>> DELETE SELECTED PERSON <<<" << endl << endl;
-    //setIdPersonToDelete(enterIdOfSelectedPerson());
     idPersonToDelete = enterIdOfSelectedPerson();
 
     char replyChar;
     bool ifPersonExist = false;
 
     for (vector <Person>::iterator itr = persons.begin(); itr != persons.end(); itr++) {
-        //if (itr -> getId() == getIdPersonToDelete()) {
         if (itr -> getId() == idPersonToDelete) {
             ifPersonExist = true;
             cout << endl << "Confirm by pressing the key 'y': ";
             replyChar = AuxiliaryMethods::readChar();
             if (replyChar == 'y') {
-                //personsFile.deleteSelectedPersonInFile(getIdPersonToDelete());
                 personsFile.deleteSelectedPersonInFile(idPersonToDelete);
 
                 persons.erase(itr);
@@ -182,14 +178,6 @@ int PersonManager::enterIdOfSelectedPerson() {
     IdSelectedPerson = AuxiliaryMethods::readInteger();
     return IdSelectedPerson ;
 }
-
-//int PersonManager::getIdPersonToDelete() {
-//    return idPersonToDelete;
-//}
-//
-//void PersonManager::setIdPersonToDelete(int idPersonToDelete) {
-//    this -> idPersonToDelete = idPersonToDelete;
-//}
 
 void PersonManager::modifyPerson() {
 

@@ -18,7 +18,6 @@ class PersonManager {
     PersonsFile personsFile;
     const int ID_LOGGED_USER;
     vector <Person> persons;
-    //int idPersonToDelete;
 
     Person enterNewPersonData();
     void showPersonData(Person person);
@@ -41,10 +40,6 @@ public:
     void searchPersonByLastName();
     void deletePerson();
     void modifyPerson();
-
-    //int getIdPersonToDelete();
-    //void setIdPersonToDelete(int idPersonToDelete);
-
 
 };
 
