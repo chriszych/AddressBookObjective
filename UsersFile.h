@@ -7,25 +7,23 @@
 #include <cstdlib>
 
 #include "User.h"
+#include "TextFile.h"
 #include "AuxiliaryMethods.h"
 
 using namespace std;
 
-class UsersFile {
-
-    const string USERS_FILE;
+class UsersFile : public TextFile {
 
     string convertUserDataToLineSeparatedWithVerticalLines (User user);
     User getUserData (string singleUserDataSeparatedWithVerticalLines);
 
-
 public:
 
-    UsersFile(string fileName) : USERS_FILE(fileName) {};
+    UsersFile(string fileName) : TextFile(fileName) {};
+
     void addUserToFile(User user);
     vector <User> readUsersFromFile();
     void saveAllUsersToFile(vector <User> &users);
-
 };
 
 #endif

@@ -11,7 +11,6 @@ void UserManager::registerUser() {
 
     cout << endl << "Account created successfully" << endl << endl;
     system("pause");
-
 }
 
 User UserManager::enterNewUserData() {
@@ -50,7 +49,6 @@ bool UserManager::checkIfLoginExist(string login) {
     }
     return false;
 }
-
 
 void UserManager::showAllUsers() {
 

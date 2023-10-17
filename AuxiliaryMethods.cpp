@@ -13,15 +13,6 @@ string AuxiliaryMethods::readLine() {
     return lineInput;
 }
 
-bool AuxiliaryMethods::isFileEmpty(fstream &textFile) {
-
-    textFile.seekg(0, ios::end);
-    if (textFile.tellg() == 0)
-        return true;
-    else
-        return false;
-}
-
 int AuxiliaryMethods::convertStringToInt(string number) {
     int intNumber;
     istringstream iss(number);
@@ -61,4 +52,19 @@ char AuxiliaryMethods::readChar() {
         cout << "This is not a single character. Enter again." << endl;
     }
     return lineChar;
+}
+
+int AuxiliaryMethods::readInteger() {
+    string inputLine = "";
+    int inputNumber = 0;
+
+    while (true) {
+        getline(cin, inputLine);
+
+        stringstream myStream(inputLine);
+        if (myStream >> inputNumber)
+            break;
+        cout << "This is not an integer number. Enter again. " << endl;
+    }
+    return inputNumber;
 }

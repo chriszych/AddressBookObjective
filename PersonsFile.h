@@ -6,29 +6,37 @@
 #include <fstream>
 #include <cstdlib>
 
+#include "TextFile.h"
 #include "Person.h"
 #include "AuxiliaryMethods.h"
 
 using namespace std;
 
-class PersonsFile {
+class PersonsFile : public TextFile {
 
-    const string PERSONS_FILE;
+    const string TEMP_PERSONS_FILE = "tmpPersons.txt";
     int idLastPerson;
 
-    string convertPersonDataToLineSeparatedWithVerticalLines(Person person);
+
     int getPersonIdFromDataSeparatedWithVerticalLines(string singlePersonDataSeparatedWithVerticalLines);
     int getUserIdFromDataSeparatedWithVerticalLines(string singlePersonDataSeparatedWithVerticalLines);
     Person getPersonData(string singlePersonDataSeparatedWithVerticalLines);
+    void deleteFile(string fileName);
+    void changeFileName(string oldFileName, string newFileName);
+    int getLastPersonIdFromFile();
+    int getOneBeforeLastPersonIdFromFile();
+    string convertPersonDataToLineSeparatedWithVerticalLines(Person person);
 
 public:
 
-    PersonsFile(string fileName) : PERSONS_FILE(fileName) {
+    PersonsFile(string fileName) : TextFile(fileName) {
         idLastPerson = 0;
     };
 
     bool addPersonToFile(Person person);
     void getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser);
+    void deleteSelectedPersonInFile(int personId);
+    void modifySelectedPersonInFile(Person person);
 
     void setIdLastPerson(int newIdLastPerson);
     int getIdLastPerson();

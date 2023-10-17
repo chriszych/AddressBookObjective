@@ -97,11 +97,17 @@ char AddressBook::selectUserMenuOption() {
 }
 
 void AddressBook::searchPersonByFirstName() {
-
     personManager -> searchPersonByFirstName();
 }
 
 void AddressBook::searchPersonByLastName() {
-
     personManager -> searchPersonByLastName();
+}
+
+void AddressBook::deletePerson() {
+    personManager -> deletePerson();
+}
+
+void AddressBook::modifyPerson() {
+    personManager -> modifyPerson();
 }

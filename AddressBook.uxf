@@ -4,10 +4,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>410</x>
+      <x>470</x>
       <y>0</y>
       <w>430</w>
-      <h>270</h>
+      <h>320</h>
     </coordinates>
     <panel_attributes>AddressBook
 --
@@ -25,7 +25,12 @@ AddressBook(string, string)
 + selectMainMenuOption() : char
 + selectUserMenuOption() : char
 + addPerson() : void
++ searchPersonByFirstName() : void
++ searchPersonByLastName() : void
 + showAllPersons() : void
++ deletePerson() : void
++ modifyPerson() : void
+
 
 
 
@@ -35,8 +40,8 @@ AddressBook(string, string)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>510</x>
-      <y>720</y>
+      <x>610</x>
+      <y>920</y>
       <w>140</w>
       <h>120</h>
     </coordinates>
@@ -53,8 +58,8 @@ AddressBook(string, string)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>510</x>
-      <y>280</y>
+      <x>620</x>
+      <y>340</y>
       <w>290</w>
       <h>250</h>
     </coordinates>
@@ -83,14 +88,13 @@ UserManager(string)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>510</x>
-      <y>550</y>
+      <x>500</x>
+      <y>630</y>
       <w>400</w>
       <h>150</h>
     </coordinates>
     <panel_attributes>UsersFile
 --
-- USERS_FILE : string
 --
 UsersFile(string);
 - convertUserDataToLineSeparatedWithVerticalLines(User) : string
@@ -105,8 +109,8 @@ UsersFile(string);
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>860</x>
-      <y>320</y>
+      <x>0</x>
+      <y>40</y>
       <w>440</w>
       <h>180</h>
     </coordinates>
@@ -117,10 +121,10 @@ UsersFile(string);
 + convertIntToString (integer) : string
 + convertStringToInt(string) : integer
 + readLine () : string
-+ isFileEmpty(fstream) : bool
 + getNumber(string, integer) : string
 + changeFirstLetterToUpperAndRestLettersToLower (string ) : string
 + readChar() : char
++ readInteger() : integer
 
 </panel_attributes>
     <additional_attributes/>
@@ -128,22 +132,33 @@ UsersFile(string);
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>280</y>
-      <w>280</w>
-      <h>180</h>
+      <x>0</x>
+      <y>250</y>
+      <w>360</w>
+      <h>350</h>
     </coordinates>
     <panel_attributes>PersonManager
 --
 - personsFile : PersonsFile
 - ID_LOGGED_USER : integer
 - persons: vector &lt;Person&gt;
+- idPersonToDelete() : integer
 --
 PersonManager(string, integer)
 - enterNewPersonData() : Person
 - showPersonData(Person) : void
-+ addPerson() : integer
+- displayPersonData(Person) : void
+- displaySearchPersonNumber(PersonNumber) : void
+- enterIdOfSelectedPerson() : integer
+- selectMenuEditOption() : char
+- modifySelectedPersonData(Prson) : void
++ addPerson() : void
 + showAllPersons() : void
++ searchPersonByFirstName() : void
++ searchPersonByLastName() : void
++ deletePerson() : void
++ getLastPersonIdAfterDeletedSelectedPerson() : void
++ modifyPerson();
 
 
 </panel_attributes>
@@ -152,14 +167,14 @@ PersonManager(string, integer)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>10</x>
-      <y>480</y>
+      <x>0</x>
+      <y>610</y>
       <w>480</w>
-      <h>200</h>
+      <h>300</h>
     </coordinates>
     <panel_attributes>PersonsFile
 --
-- PERSONS_FILE : string
+- TMP_PERSONS_FILE : string
 - idLastPerson : integer
 --
 PersonsFile(string)
@@ -167,8 +182,16 @@ PersonsFile(string)
 - getPersonIdFromDataSeparatedWithVerticalLines(string) : integer
 - getUserIdFromDataSeparatedWithVerticalLines(string) : integer
 - getPersonData(string) : Person
+- deleteFile(string) : void
+- changeFileName(string, string) : void
+- getLastPersonIdFromFile() : integer
+- getOneBeforeLastPersonIdFromFile() : integer 
 + addPersonToFile(Person) : bool
 + getAllPersonsForLoggedUserFromFile(vector &lt;Person&gt;, integer) : void
++ deleteSelectedPersonInFile(integer) : void
++ getLastPersonIdAfterDeleteSelectedPerson(integer) : void
++ modifySelectedPersonInFile(Person) : void
+
 
 
 </panel_attributes>
@@ -178,7 +201,7 @@ PersonsFile(string)
     <id>UMLClass</id>
     <coordinates>
       <x>20</x>
-      <y>700</y>
+      <y>930</y>
       <w>410</w>
       <h>170</h>
     </coordinates>
@@ -195,5 +218,44 @@ PersonsFile(string)
 Person(int, int, string, string, string, string, string, string)
 </panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>470</y>
+      <w>200</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>TextFile
+--
+# TEXT_FILE : string
+--
+TextFile(string)
+# isFileEmpty(fstream) : bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>550</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>550</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
 </diagram>

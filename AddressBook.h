@@ -39,6 +39,8 @@ public:
     void searchPersonByFirstName();
     void searchPersonByLastName();
     void showAllPersons();
+    void deletePerson();
+    void modifyPerson();
 
 };
 
