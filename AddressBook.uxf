@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>470</x>
+      <x>480</x>
       <y>0</y>
       <w>430</w>
       <h>320</h>
@@ -40,7 +40,7 @@ AddressBook(string, string)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>610</x>
+      <x>620</x>
       <y>920</y>
       <w>140</w>
       <h>120</h>
@@ -58,7 +58,7 @@ AddressBook(string, string)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>620</x>
+      <x>630</x>
       <y>340</y>
       <w>290</w>
       <h>250</h>
@@ -88,7 +88,7 @@ UserManager(string)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>500</x>
+      <x>510</x>
       <y>630</y>
       <w>400</w>
       <h>150</h>
@@ -109,7 +109,7 @@ UsersFile(string);
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
+      <x>10</x>
       <y>40</y>
       <w>440</w>
       <h>180</h>
@@ -132,7 +132,7 @@ UsersFile(string);
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
+      <x>10</x>
       <y>250</y>
       <w>360</w>
       <h>350</h>
@@ -142,7 +142,6 @@ UsersFile(string);
 - personsFile : PersonsFile
 - ID_LOGGED_USER : integer
 - persons: vector &lt;Person&gt;
-- idPersonToDelete() : integer
 --
 PersonManager(string, integer)
 - enterNewPersonData() : Person
@@ -157,7 +156,6 @@ PersonManager(string, integer)
 + searchPersonByFirstName() : void
 + searchPersonByLastName() : void
 + deletePerson() : void
-+ getLastPersonIdAfterDeletedSelectedPerson() : void
 + modifyPerson();
 
 
@@ -167,7 +165,7 @@ PersonManager(string, integer)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
+      <x>10</x>
       <y>610</y>
       <w>480</w>
       <h>300</h>
@@ -189,7 +187,6 @@ PersonsFile(string)
 + addPersonToFile(Person) : bool
 + getAllPersonsForLoggedUserFromFile(vector &lt;Person&gt;, integer) : void
 + deleteSelectedPersonInFile(integer) : void
-+ getLastPersonIdAfterDeleteSelectedPerson(integer) : void
 + modifySelectedPersonInFile(Person) : void
 
 
@@ -200,7 +197,7 @@ PersonsFile(string)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>20</x>
+      <x>30</x>
       <y>930</y>
       <w>410</w>
       <h>170</h>
@@ -222,7 +219,7 @@ Person(int, int, string, string, string, string, string, string)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
+      <x>410</x>
       <y>470</y>
       <w>200</w>
       <h>90</h>
@@ -239,7 +236,7 @@ TextFile(string)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
+      <x>530</x>
       <y>550</y>
       <w>30</w>
       <h>100</h>
@@ -250,7 +247,7 @@ TextFile(string)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>420</x>
+      <x>430</x>
       <y>550</y>
       <w>30</w>
       <h>80</h>
