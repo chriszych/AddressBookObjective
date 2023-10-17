@@ -185,10 +185,6 @@ void PersonManager::setIdPersonToDelete(int idPersonToDelete) {
     this -> idPersonToDelete = idPersonToDelete;
 }
 
-void PersonManager::getLastPersonIdAfterDeletedSelectedPerson() {
-    personsFile.getLastPersonIdAfterDeletedSelectedPerson(idPersonToDelete);
-}
-
 void PersonManager::modifyPerson() {
 
     system("cls");

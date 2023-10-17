@@ -40,7 +40,6 @@ public:
     void searchPersonByFirstName();
     void searchPersonByLastName();
     void deletePerson();
-    void getLastPersonIdAfterDeletedSelectedPerson();
     void modifyPerson();
 
     int getIdPersonToDelete();

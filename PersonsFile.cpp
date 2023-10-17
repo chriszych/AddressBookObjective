@@ -215,11 +215,6 @@ int PersonsFile::getOneBeforeLastPersonIdFromFile() {
     return oneBeforeLastPersonId;
 }
 
-void PersonsFile::getLastPersonIdAfterDeletedSelectedPerson(int deletedPersonId) {
-    if (deletedPersonId == idLastPerson)
-        setIdLastPerson(getLastPersonIdFromFile());
-}
-
 void PersonsFile::modifySelectedPersonInFile(Person person) {
 
     fstream readTextFile, tmpTextFile;

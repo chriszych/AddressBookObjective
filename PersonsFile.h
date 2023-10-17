@@ -36,7 +36,6 @@ public:
     bool addPersonToFile(Person person);
     void getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser);
     void deleteSelectedPersonInFile(int personId);
-    void getLastPersonIdAfterDeletedSelectedPerson(int deletedPersonId);
     void modifySelectedPersonInFile(Person person);
 
     void setIdLastPerson(int newIdLastPerson);
