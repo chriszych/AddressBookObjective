@@ -28,7 +28,7 @@ bool PersonsFile::addPersonToFile(Person person) {
             textFile << endl << personDataLine ;
         }
 
-        idLastPerson++;
+        ++idLastPerson;
         textFile.close();
         return true;
     }
@@ -107,7 +107,7 @@ Person PersonsFile::getPersonData(string singlePersonDataSeparatedWithVerticalLi
                 break;
             }
             singlePersonData = "";
-            singlePersonDataNumber++;
+            ++singlePersonDataNumber;
         }
     }
     return person;
@@ -139,8 +139,7 @@ void PersonsFile::deleteSelectedPersonInFile(int personId) {
 
             linePersonId = getPersonIdFromDataSeparatedWithVerticalLines(readLine);
 
-            if(personId == linePersonId) {}
-            else {
+            if(personId != linePersonId) {
                 if (linePersonId == getIdLastPerson()) {
                     tmpTextFile << readLine;
                 } else {
@@ -221,10 +220,6 @@ void PersonsFile::modifySelectedPersonInFile(Person person) {
     string readLine = "";
     string personDataLine = "";
     int linePersonId = 0;
-
-
-    setIdLastPerson(getLastPersonIdFromFile());
-
 
     personDataLine = convertPersonDataToLineSeparatedWithVerticalLines(person);
 

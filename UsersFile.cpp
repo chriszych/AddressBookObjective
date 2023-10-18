@@ -71,7 +71,7 @@ User UsersFile::getUserData(string singleUserDataSeparatedWithVerticalLines) {
                 break;
             }
             singleUserData = "";
-            singleUserDataNumber++;
+            ++singleUserDataNumber;
         }
     }
     return user;
@@ -85,7 +85,7 @@ void UsersFile::saveAllUsersToFile(vector <User> &users) {
     textFile.open(TEXT_FILE.c_str(), ios::out);
 
     if (textFile.good() == true) {
-        for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
+        for (vector <User>::iterator itr = users.begin(); itr != users.end(); ++itr) {
             userDataLine = convertUserDataToLineSeparatedWithVerticalLines(*itr);
 
             if (itr == itrEnd) {

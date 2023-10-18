@@ -19,7 +19,7 @@ void PersonManager::addPerson() {
 Person PersonManager::enterNewPersonData() {
     Person person;
 
-    person.setId(personsFile.getIdLastPerson()+1);
+    person.setId(personsFile.getIdLastPerson() + 1);
     person.setUserId(ID_LOGGED_USER);
 
     cout << "Enter FirstName: ";
@@ -48,7 +48,7 @@ void PersonManager::showAllPersons() {
     if (!persons.empty()) {
         cout << "             >>> PERSONS <<<" << endl;
         cout << "-----------------------------------------------" << endl;
-        for (vector <Person> :: iterator itr = persons.begin(); itr != persons.end(); itr++) {
+        for (vector <Person> :: iterator itr = persons.begin(); itr != persons.end(); ++itr) {
             showPersonData(*itr);
         }
         cout << endl;
@@ -81,10 +81,10 @@ void PersonManager::searchPersonByFirstName() {
         firstNameToSearch = AuxiliaryMethods::readLine();
         firstNameToSearch = AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(firstNameToSearch);
 
-        for (vector <Person>::iterator  itr = persons.begin(); itr != persons.end(); itr++) {
+        for (vector <Person>::iterator  itr = persons.begin(); itr != persons.end(); ++itr) {
             if (itr -> getFirstName() == firstNameToSearch) {
                 displayPersonData(*itr);
-                personsNumber++;
+                ++personsNumber;
             }
         }
         displaySearchPersonNumber(personsNumber);
@@ -107,10 +107,10 @@ void PersonManager::searchPersonByLastName() {
         lastNameToSearch = AuxiliaryMethods::readLine();
         lastNameToSearch = AuxiliaryMethods::changeFirstLetterToUpperAndRestLettersToLower(lastNameToSearch);
 
-        for (vector <Person>::iterator  itr = persons.begin(); itr != persons.end(); itr++) {
+        for (vector <Person>::iterator  itr = persons.begin(); itr != persons.end(); ++itr) {
             if (itr -> getLastName() == lastNameToSearch) {
                 displayPersonData(*itr);
-                personsNumber++;
+                ++personsNumber;
             }
         }
         displaySearchPersonNumber(personsNumber);
@@ -148,7 +148,7 @@ void PersonManager::deletePerson() {
     char replyChar;
     bool ifPersonExist = false;
 
-    for (vector <Person>::iterator itr = persons.begin(); itr != persons.end(); itr++) {
+    for (vector <Person>::iterator itr = persons.begin(); itr != persons.end(); ++itr) {
         if (itr -> getId() == idPersonToDelete) {
             ifPersonExist = true;
             cout << endl << "Confirm by pressing the key 'y': ";
@@ -173,10 +173,8 @@ void PersonManager::deletePerson() {
 }
 
 int PersonManager::enterIdOfSelectedPerson() {
-    int IdSelectedPerson = 0;
     cout << "Enter selected person ID: ";
-    IdSelectedPerson = AuxiliaryMethods::readInteger();
-    return IdSelectedPerson ;
+    return AuxiliaryMethods::readInteger();
 }
 
 void PersonManager::modifyPerson() {
@@ -192,7 +190,7 @@ void PersonManager::modifyPerson() {
     char replyChar;
     bool ifPersonExist = false;
 
-    for (size_t i = 0; i < persons.size(); i++) {
+    for (size_t i = 0; i < persons.size(); ++i) {
         if (persons[i].getId() == idEditPerson) {
             ifPersonExist = true;
             replyChar = selectMenuEditOption();
