@@ -8,3 +8,8 @@ bool TextFile::isFileEmpty(fstream &textFile) {
     else
         return false;
 }
+
+string TextFile::getTextFile(){
+
+    return TEXT_FILE;
+    }

@@ -25,5 +25,4 @@ public:
     vector <User> readUsersFromFile();
     void saveAllUsersToFile(vector <User> &users);
 };
-
 #endif

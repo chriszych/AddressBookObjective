@@ -24,5 +24,4 @@ public:
     static int readInteger();
 
 };
-
 #endif

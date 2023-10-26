@@ -131,10 +131,8 @@ void PersonManager::displayPersonData(Person person) {
 }
 
 void PersonManager::displaySearchPersonNumber(int personsNumber) {
-    if (personsNumber == 0)
-        cout << endl << "No such persons in your AddressBook." << endl;
-    else
-        cout << endl << "Number of persons in your AddressBook: " << personsNumber << endl << endl;
+
+    personsNumber == 0 ?  cout << endl << "No such persons in your AddressBook." << endl : cout << endl << "Number of persons in your AddressBook: " << personsNumber << endl << endl;
 }
 
 void PersonManager::deletePerson() {

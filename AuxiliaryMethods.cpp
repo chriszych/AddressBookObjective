@@ -23,7 +23,7 @@ int AuxiliaryMethods::convertStringToInt(string number) {
 
 string AuxiliaryMethods::getNumber(string text, int charPosition) {
     string number = "";
-    while(isdigit(text[charPosition]) == true) {
+    while(isdigit(text[charPosition])) {
         number += text[charPosition];
         ++charPosition;
     }

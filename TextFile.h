@@ -7,15 +7,18 @@ using namespace std;
 
 class TextFile {
 
-protected:
+private:
 
     const string TEXT_FILE;
+
+protected:
 
     bool isFileEmpty(fstream &textFile);
 
 public:
 
     TextFile(string fileName) : TEXT_FILE(fileName) {};
-};
 
+    string getTextFile();
+};
 #endif

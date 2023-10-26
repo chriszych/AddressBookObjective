@@ -41,7 +41,5 @@ public:
     void showAllPersons();
     void deletePerson();
     void modifyPerson();
-
 };
-
 #endif

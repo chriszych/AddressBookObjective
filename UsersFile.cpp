@@ -4,18 +4,18 @@ void UsersFile::addUserToFile(User user) {
     string userDataLine = "";
     fstream textFile;
 
-    textFile.open(TEXT_FILE.c_str(), ios::app);
+    textFile.open(getTextFile().c_str(), ios::app);
 
-    if (textFile.good() == true) {
+    if (textFile.good()) {
         userDataLine = convertUserDataToLineSeparatedWithVerticalLines (user);
 
-        if (isFileEmpty(textFile) == true) {
+        if (isFileEmpty(textFile)) {
             textFile << userDataLine;
         } else {
             textFile << endl << userDataLine ;
         }
     } else
-        cout << "Opening file " << TEXT_FILE << " not succeed, no data write to it." << endl;
+        cout << "Opening file " << getTextFile() << " not succeed, no data write to it." << endl;
 
     textFile.close();
 }
@@ -37,9 +37,10 @@ vector <User> UsersFile::readUsersFromFile() {
     User user;
     string singleUserDataSeparatedWithVerticalLines = "";
 
-    textFile.open(TEXT_FILE.c_str(), ios::in);
+    textFile.open(getTextFile().c_str(), ios::in);
 
-    if (textFile.good() == true) {
+
+    if (textFile.good()) {
         while (getline(textFile, singleUserDataSeparatedWithVerticalLines)) {
             user = getUserData(singleUserDataSeparatedWithVerticalLines);
             users.push_back(user);
@@ -82,9 +83,9 @@ void UsersFile::saveAllUsersToFile(vector <User> &users) {
     string userDataLine = "";
     vector <User>::iterator itrEnd = --users.end();
 
-    textFile.open(TEXT_FILE.c_str(), ios::out);
+    textFile.open(getTextFile().c_str(), ios::out);
 
-    if (textFile.good() == true) {
+    if (textFile.good()) {
         for (vector <User>::iterator itr = users.begin(); itr != users.end(); ++itr) {
             userDataLine = convertUserDataToLineSeparatedWithVerticalLines(*itr);
 
@@ -96,7 +97,7 @@ void UsersFile::saveAllUsersToFile(vector <User> &users) {
             userDataLine = "";
         }
     } else {
-        cout << "Failed to open " << TEXT_FILE << " file." << endl;
+        cout << "Failed to open " << getTextFile() << " file." << endl;
     }
     textFile.close();
 }

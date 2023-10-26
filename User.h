@@ -13,13 +13,12 @@ class User {
 
 public:
 
-    void setId(int newId);
-    void setLogin(string newLogin);
-    void setPassword(string newPassword);
-
     int getId();
     string getLogin();
     string getPassword();
-};
 
+    void setId(int newId);
+    void setLogin(string newLogin);
+    void setPassword(string newPassword);
+};
 #endif
