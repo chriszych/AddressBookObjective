@@ -23,7 +23,7 @@ User UserManager::enterNewUserData() {
         cout << "Enter login: ";
         login = AuxiliaryMethods::readLine();
         user.setLogin(login);
-    } while (checkIfLoginExist(user.getLogin()) == true);
+    } while (checkIfLoginExist(user.getLogin()));
 
     cout << "Enter password: ";
     password = AuxiliaryMethods::readLine();
@@ -33,7 +33,7 @@ User UserManager::enterNewUserData() {
 }
 
 int UserManager::getNewUserId() {
-    if (users.empty() == true)
+    if (users.empty())
         return 1;
     else
         return users.back().getId() + 1;
@@ -41,7 +41,7 @@ int UserManager::getNewUserId() {
 
 bool UserManager::checkIfLoginExist(string login) {
 
-    for (size_t i=0; i < users.size(); i++) {
+    for (size_t i=0; i < users.size(); ++i) {
         if (users[i].getLogin() == login) {
             cout << endl << "User with entered login already exist." << endl;
             return true;
@@ -53,7 +53,7 @@ bool UserManager::checkIfLoginExist(string login) {
 void UserManager::showAllUsers() {
 
     cout << "List of registered users: " << endl;
-    for (size_t i=0; i < users.size(); i++) {
+    for (size_t i=0; i < users.size(); ++i) {
 
         cout << "(" << users[i].getId() << "). " << users[i].getLogin() << " : " << users[i].getPassword() << endl;
     }
@@ -93,7 +93,7 @@ int UserManager::loginUser() {
             system("pause");
             return 0;
         }
-        itr++;
+        ++itr;
     }
     cout << "No user with such login." << endl << endl;
     system("pause");
@@ -108,7 +108,7 @@ void UserManager::changeLoggedUserPassword() {
     cout << "Enter new Password: ";
     newPassword = AuxiliaryMethods::readLine();
 
-    for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
+    for (vector <User>::iterator itr = users.begin(); itr != users.end(); ++itr) {
         if (itr -> getId() == getIdLoggedUser()) {
             itr -> setPassword(newPassword);
             cout << "Password changed successfully." << endl << endl;

@@ -29,6 +29,9 @@ public:
         users = usersFile.readUsersFromFile();
     };
 
+    int getIdLoggedUser();
+    void setIdLoggedUser(int newIdLoggedUser);
+
     void registerUser();
     void showAllUsers();
     int loginUser();
@@ -36,9 +39,5 @@ public:
     void changeLoggedUserPassword();
     void logoutCurrentUser();
     bool isUserLoggedIn();
-
-    int getIdLoggedUser();
-    void setIdLoggedUser(int newIdLoggedUser);
 };
-
 #endif

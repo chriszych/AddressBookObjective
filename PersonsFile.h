@@ -23,8 +23,6 @@ class PersonsFile : public TextFile {
     Person getPersonData(string singlePersonDataSeparatedWithVerticalLines);
     void deleteFile(string fileName);
     void changeFileName(string oldFileName, string newFileName);
-    int getLastPersonIdFromFile();
-    int getOneBeforeLastPersonIdFromFile();
     string convertPersonDataToLineSeparatedWithVerticalLines(Person person);
 
 public:
@@ -33,13 +31,13 @@ public:
         idLastPerson = 0;
     };
 
+    int getIdLastPerson();
+    void setIdLastPerson(int newIdLastPerson);
+
     bool addPersonToFile(Person person);
     void getAllPersonsForLoggedUserFromFile(vector <Person> &persons, int idLoggedUser);
     void deleteSelectedPersonInFile(int personId);
     void modifySelectedPersonInFile(Person person);
-
-    void setIdLastPerson(int newIdLastPerson);
-    int getIdLastPerson();
 
 };
 #endif
