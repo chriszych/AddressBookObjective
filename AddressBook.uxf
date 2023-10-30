@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>960</x>
-      <y>0</y>
+      <y>20</y>
       <w>430</w>
       <h>320</h>
     </coordinates>
@@ -41,7 +41,7 @@ AddressBook(string, string)
     <id>UMLClass</id>
     <coordinates>
       <x>1570</x>
-      <y>470</y>
+      <y>490</y>
       <w>140</w>
       <h>120</h>
     </coordinates>
@@ -59,7 +59,7 @@ AddressBook(string, string)
     <id>UMLClass</id>
     <coordinates>
       <x>1110</x>
-      <y>370</y>
+      <y>390</y>
       <w>290</w>
       <h>250</h>
     </coordinates>
@@ -89,7 +89,7 @@ UserManager(string)
     <id>UMLClass</id>
     <coordinates>
       <x>990</x>
-      <y>680</y>
+      <y>700</y>
       <w>450</w>
       <h>150</h>
     </coordinates>
@@ -110,7 +110,7 @@ UsersFile(string);
     <id>UMLClass</id>
     <coordinates>
       <x>360</x>
-      <y>20</y>
+      <y>40</y>
       <w>440</w>
       <h>180</h>
     </coordinates>
@@ -118,13 +118,13 @@ UsersFile(string);
 --
 
 --
-+ convertIntToString (int) : string
-+ convertStringToInt(string) : int
-+ readLine () : string
-+ getNumber(string, int) : string
-+ changeFirstLetterToUpperAndRestLettersToLower (string) : string
-+ readChar() : char
-+ readInteger() : int
+_+ convertIntToString (int) : string_
+_+ convertStringToInt(string) : int_
+_+ readLine () : string_
+_+ getNumber(string, int) : string_
+_+ changeFirstLetterToUpperAndRestLettersToLower (string) : string_
+_+ readChar() : char_
+_+ readInteger() : int_
 
 </panel_attributes>
     <additional_attributes/>
@@ -133,7 +133,7 @@ UsersFile(string);
     <id>UMLClass</id>
     <coordinates>
       <x>520</x>
-      <y>250</y>
+      <y>270</y>
       <w>360</w>
       <h>310</h>
     </coordinates>
@@ -166,7 +166,7 @@ PersonManager(string, int)
     <id>UMLClass</id>
     <coordinates>
       <x>460</x>
-      <y>640</y>
+      <y>660</y>
       <w>480</w>
       <h>300</h>
     </coordinates>
@@ -196,7 +196,7 @@ PersonsFile(string)
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>580</y>
+      <y>600</y>
       <w>410</w>
       <h>170</h>
     </coordinates>
@@ -218,7 +218,7 @@ Person(int, int, string, string, string, string, string, string)
     <id>UMLClass</id>
     <coordinates>
       <x>890</x>
-      <y>470</y>
+      <y>490</y>
       <w>200</w>
       <h>90</h>
     </coordinates>
@@ -235,7 +235,7 @@ TextFile(string)
     <id>Relation</id>
     <coordinates>
       <x>1010</x>
-      <y>550</y>
+      <y>570</y>
       <w>30</w>
       <h>150</h>
     </coordinates>
@@ -246,7 +246,7 @@ TextFile(string)
     <id>Relation</id>
     <coordinates>
       <x>910</x>
-      <y>550</y>
+      <y>570</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -257,18 +257,18 @@ TextFile(string)
     <id>Relation</id>
     <coordinates>
       <x>870</x>
-      <y>250</y>
+      <y>270</y>
       <w>110</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1130</x>
-      <y>310</y>
+      <y>330</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
@@ -279,7 +279,7 @@ TextFile(string)
     <id>Relation</id>
     <coordinates>
       <x>1170</x>
-      <y>610</y>
+      <y>630</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -290,7 +290,7 @@ TextFile(string)
     <id>Relation</id>
     <coordinates>
       <x>650</x>
-      <y>550</y>
+      <y>570</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -301,99 +301,100 @@ TextFile(string)
     <id>Relation</id>
     <coordinates>
       <x>1390</x>
-      <y>510</y>
+      <y>530</y>
       <w>200</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>lt=&lt;..</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1410</x>
-      <y>570</y>
+      <y>590</y>
       <w>180</w>
       <h>130</h>
     </coordinates>
-    <panel_attributes>lt=&lt;..</panel_attributes>
+    <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;110.0;10.0;10.0;160.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>220</x>
-      <y>400</y>
+      <y>420</y>
       <w>320</w>
       <h>200</h>
     </coordinates>
-    <panel_attributes>lt=&lt;..</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>300.0;10.0;10.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>400</x>
-      <y>640</y>
+      <y>660</y>
       <w>80</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>lt=&lt;..</panel_attributes>
+    <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>790</x>
-      <y>30</y>
+      <y>50</y>
       <w>190</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>lt=&lt;..</panel_attributes>
+    <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>170.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>550</x>
-      <y>190</y>
+      <y>210</y>
       <w>30</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>lt=&lt;..</panel_attributes>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
     <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>470</x>
-      <y>190</y>
+      <y>210</y>
       <w>30</w>
       <h>470</h>
     </coordinates>
-    <panel_attributes>lt=&lt;..</panel_attributes>
+    <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;450.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>790</x>
-      <y>120</y>
+      <y>140</y>
       <w>340</w>
       <h>290</h>
     </coordinates>
-    <panel_attributes>lt=&lt;..</panel_attributes>
+    <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>320.0;270.0;120.0;270.0;120.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>790</x>
-      <y>150</y>
+      <y>170</y>
       <w>330</w>
       <h>550</h>
     </coordinates>
-    <panel_attributes>lt=&lt;..</panel_attributes>
+    <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>310.0;530.0;310.0;280.0;100.0;280.0;100.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
